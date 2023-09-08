@@ -1,0 +1,58 @@
+{
+	"name": "CdmInput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CanarySql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "FiscalYear",
+				"type": "varchar"
+			},
+			{
+				"name": "CostCenterId",
+				"type": "varchar"
+			},
+			{
+				"name": "PostingDate",
+				"type": "varchar"
+			},
+			{
+				"name": "CostElementLevel2Id",
+				"type": "varchar"
+			},
+			{
+				"name": "CostElementLevel1Id",
+				"type": "varchar"
+			},
+			{
+				"name": "CostValue",
+				"type": "varchar"
+			},
+			{
+				"name": "Currency",
+				"type": "varchar"
+			},
+			{
+				"name": "TransactionId",
+				"type": "varchar"
+			},
+			{
+				"name": "DocumentId",
+				"type": "varchar"
+			},
+			{
+				"name": "AccountId",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "test",
+			"table": "cdmSinkTable"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

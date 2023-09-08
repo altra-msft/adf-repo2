@@ -1,0 +1,45 @@
+{
+	"name": "flowletTest",
+	"properties": {
+		"type": "Flowlet",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "Filter1"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "input1"
+				},
+				{
+					"name": "output1"
+				}
+			],
+			"udfLibraries": [
+				{
+					"referenceName": "MadridLibrary",
+					"type": "DataFlowReference"
+				}
+			],
+			"scriptLines": [
+				"input(output(",
+				"          CustomerNo as integer,",
+				"          Customer as string,",
+				"          Currency as string,",
+				"          Country as string,",
+				"          Active as boolean,",
+				"          Zipcode as string",
+				"     ),",
+				"     order: 0,",
+				"     allowSchemaDrift: true) ~> input1",
+				"input1 filter(Country == 'Croatia') ~> Filter1",
+				"Filter1 derive(udf = function22(CustomerNo,Customer)) ~> derivedColumn1",
+				"derivedColumn1 output() ~> output1"
+			]
+		}
+	}
+}

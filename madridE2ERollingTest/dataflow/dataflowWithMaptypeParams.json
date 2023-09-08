@@ -1,0 +1,28 @@
+{
+	"name": "dataflowWithMaptypeParams",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CanarySql",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"script": "parameters{\n\tparameter1 as [string,string] ([\"name\"->\"Hareesh\"]),\n\tparameter2 as [string,double[]] ([\"name\"->[5.6,10.9]]),\n\tparameter3 as [string,long[]] ([\"marks\"->[22,44],\"rank\"->[2,1]]),\n\tparameter4 as [boolean,boolean[]] ([true()->[true(),true(),true(),false()],false()->[false(),false(),false(),true()]]),\n\tparameter5 as [float,string[]] ([5.2f->[\"<10\",\"<100\"],555.55f->[\">10\",\">100\",\">200\",\">300\",\">400\"]]),\n\tparameter6 as [string,string[]] ([\"Key1\"->[\"<10\",\"<100\"],\"Key2\"->[\">10\",\">100\",\">200\",\">300\",\">400\"]]),\n\tparameter7 as [timestamp,timestamp[]] ([currentTimestamp()->[currentTimestamp(),currentTimestamp()]]),\n\tparameter8 as [date,date[]] ([currentDate()->[currentDate(),currentDate()]]),\n\tparameter9 as [integer,integer[]] ([1->[1],2->[2,2],3->[3,3,3]])\n}\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source1\nsource1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
+		}
+	}
+}

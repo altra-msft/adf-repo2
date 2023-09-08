@@ -1,0 +1,232 @@
+{
+	"name": "adfcdcCosmosComplexTest",
+	"properties": {
+		"SourceConnectionsInfo": [
+			{
+				"SourceEntities": [
+					{
+						"name": "Collection.CdcComplexTypeTest",
+						"properties": {
+							"schema": [
+								{
+									"name": "etag",
+									"dataType": "string"
+								},
+								{
+									"name": "name",
+									"dataType": "string"
+								},
+								{
+									"name": "properties",
+									"dataType": "(typeProperties as (resourceId as string), type as string, actions as string[])"
+								},
+								{
+									"name": "type",
+									"dataType": "string"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "container",
+									"value": "CdcComplexTypeTest"
+								},
+								{
+									"name": "format",
+									"value": "document"
+								},
+								{
+									"name": "store",
+									"value": "cosmosDB"
+								},
+								{
+									"name": "enableChangeFeed",
+									"value": true
+								},
+								{
+									"name": "changeFeedStartFromTheBeginning",
+									"value": false
+								},
+								{
+									"name": "tableName",
+									"value": "CdcComplexTypeTest"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "CosmosDb",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "CosmosDb",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				}
+			}
+		],
+		"TargetConnectionsInfo": [
+			{
+				"TargetEntities": [
+					{
+						"name": "cdcjsonsink/test",
+						"properties": {
+							"schema": [
+								{
+									"name": "etag",
+									"dataType": "string"
+								},
+								{
+									"name": "name",
+									"dataType": "string"
+								},
+								{
+									"name": "properties",
+									"dataType": "(typeProperties as (resourceId as string), type as string, actions as string[])"
+								},
+								{
+									"name": "type",
+									"dataType": "string"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "json"
+								},
+								{
+									"name": "container",
+									"value": "cdcjsonsink"
+								},
+								{
+									"name": "fileSystem",
+									"value": "cdcjsonsink"
+								},
+								{
+									"name": "folderPath",
+									"value": "test"
+								},
+								{
+									"name": "deletable",
+									"value": false
+								},
+								{
+									"name": "updateable",
+									"value": false
+								},
+								{
+									"name": "upsertable",
+									"value": false
+								},
+								{
+									"name": "defaultToUpsert",
+									"value": false
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureBlob",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureBlobStorage",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				},
+				"DataMapperMappings": [
+					{
+						"targetEntityName": "cdcjsonsink/test",
+						"sourceEntityName": "Collection.CdcComplexTypeTest",
+						"sourceConnectionReference": {
+							"connectionName": "CosmosDb",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "etag",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "etag",
+										"entity": "Collection.CdcComplexTypeTest",
+										"entityConnectionReference": {
+											"connectionName": "CosmosDb",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "name",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "name",
+										"entity": "Collection.CdcComplexTypeTest",
+										"entityConnectionReference": {
+											"connectionName": "CosmosDb",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "type",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "type",
+										"entity": "Collection.CdcComplexTypeTest",
+										"entityConnectionReference": {
+											"connectionName": "CosmosDb",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "properties",
+									"type": "Direct",
+									"attributeReference": {
+										"name": "properties",
+										"entity": "Collection.CdcComplexTypeTest",
+										"entityConnectionReference": {
+											"connectionName": "CosmosDb",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					}
+				],
+				"Relationships": []
+			}
+		],
+		"Policy": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15
+			},
+			"mode": "Microbatch"
+		},
+		"status": "Stopped",
+		"id": "a28e159305764004ab2fbedd812c6d97"
+	}
+}

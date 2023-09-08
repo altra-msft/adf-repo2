@@ -1,0 +1,58 @@
+{
+	"name": "ParseJsonSrc",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CanarySql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "singleDocument",
+				"type": "nvarchar"
+			},
+			{
+				"name": "documentPerLine",
+				"type": "nvarchar"
+			},
+			{
+				"name": "arrayOfDocuments",
+				"type": "nvarchar"
+			},
+			{
+				"name": "jsonComplexType1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "jsonComplexType2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "jsonComplexDocPerLine",
+				"type": "nvarchar"
+			},
+			{
+				"name": "jsonComplexArrayOfDocs",
+				"type": "nvarchar"
+			},
+			{
+				"name": "jsonComplexSingleDoc",
+				"type": "nvarchar"
+			},
+			{
+				"name": "jsonHugeFile",
+				"type": "nvarchar"
+			},
+			{
+				"name": "singleDocumentDup",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "source",
+			"table": "json_parseTransformation"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

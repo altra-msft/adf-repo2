@@ -1,0 +1,17 @@
+{
+	"name": "integrationRuntime3",
+	"properties": {
+		"type": "Managed",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "Australia Southeast",
+				"dataFlowProperties": {
+					"computeType": "MemoryOptimized",
+					"coreCount": 8,
+					"timeToLive": 15,
+					"cleanup": false
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"name": "WebAzureRP",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "WebConnection",
+		"typeProperties": {
+			"baseUrl": "https://management.azure.com",
+			"enableServerCertificateValidation": true,
+			"authentication": "MSI",
+			"resource": "https://management.azure.com"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

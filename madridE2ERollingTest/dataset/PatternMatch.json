@@ -1,0 +1,69 @@
+{
+	"name": "PatternMatch",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CanarySql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "desc\\description",
+				"type": "varchar"
+			},
+			{
+				"name": "Price*",
+				"type": "varchar"
+			},
+			{
+				"name": "quantity_available",
+				"type": "varchar"
+			},
+			{
+				"name": "TaxIncluded.",
+				"type": "varchar"
+			},
+			{
+				"name": "currency^symbol",
+				"type": "varchar"
+			},
+			{
+				"name": "city+country",
+				"type": "varchar"
+			},
+			{
+				"name": "[barcode]",
+				"type": "varchar"
+			},
+			{
+				"name": "city+",
+				"type": "varchar"
+			},
+			{
+				"name": "int32",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "double1.2",
+				"type": "varchar"
+			},
+			{
+				"name": "Float6.7f",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "patternMatch1"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

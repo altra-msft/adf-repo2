@@ -1,0 +1,75 @@
+{
+	"name": "navigationTest",
+	"properties": {
+		"activities": [
+			{
+				"name": "GrandParent",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Parent",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"parameters": {
+			"int_param": {
+				"type": "int",
+				"defaultValue": 12345
+			},
+			"string_param": {
+				"type": "string",
+				"defaultValue": "test"
+			},
+			"float_param": {
+				"type": "float",
+				"defaultValue": 12345
+			},
+			"bool_param": {
+				"type": "bool",
+				"defaultValue": true
+			},
+			"array_param": {
+				"type": "array",
+				"defaultValue": [
+					1,
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"object_param": {
+				"type": "object",
+				"defaultValue": "testobj"
+			},
+			"secstring_param": {
+				"type": "securestring",
+				"defaultValue": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			},
+			"sinkSchema": {
+				"type": "string",
+				"defaultValue": "test"
+			},
+			"sinkTable": {
+				"type": "string",
+				"defaultValue": "pipeline_param_test"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-11-09T04:18:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

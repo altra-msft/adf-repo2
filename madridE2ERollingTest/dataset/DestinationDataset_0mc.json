@@ -1,0 +1,120 @@
+{
+	"name": "DestinationDataset_0mc",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "COMM",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 5
+			},
+			{
+				"name": "DEPTNO",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "EMPNO",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ENAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HIREDATE",
+				"type": "date"
+			},
+			{
+				"name": "JOB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MGR",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SAL",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 5
+			},
+			{
+				"name": "distinctNum",
+				"type": "nvarchar"
+			},
+			{
+				"name": "distinctChar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "distinctAll",
+				"type": "nvarchar"
+			},
+			{
+				"name": "exceptNum",
+				"type": "nvarchar"
+			},
+			{
+				"name": "exceptChar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "unionChar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "intersectChar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "unionNum",
+				"type": "nvarchar"
+			},
+			{
+				"name": "intersectNum",
+				"type": "nvarchar"
+			},
+			{
+				"name": "atNum",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "atChar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "isNanNum",
+				"type": "bit"
+			},
+			{
+				"name": "isNanDecimal",
+				"type": "bit"
+			},
+			{
+				"name": "radiansNum",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "radiansDecimal",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "Adfcanarytestspark3",
+			"table": "arrayFunctions1"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

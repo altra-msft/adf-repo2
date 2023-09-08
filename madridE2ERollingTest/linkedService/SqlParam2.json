@@ -1,0 +1,25 @@
+{
+	"name": "SqlParam2",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"databaseName": {
+				"type": "string",
+				"defaultValue": "fefasds@database.windows.net"
+			},
+			"pwd": {
+				"type": "string",
+				"defaultValue": "drgsdfs"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=@{linkedService().databaseName};Initial Catalog=master;User ID=admin;Password=@{linkedService().pwd}"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

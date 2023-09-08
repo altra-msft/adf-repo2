@@ -1,0 +1,882 @@
+{
+	"name": "adfcdcCloneTest",
+	"properties": {
+		"SourceConnectionsInfo": [
+			{
+				"SourceEntities": [
+					{
+						"name": "adfdatamapper/Delimited/Trip data",
+						"properties": {
+							"schema": [
+								{
+									"name": "medallion",
+									"dataType": "string"
+								},
+								{
+									"name": "hack_license",
+									"dataType": "string"
+								},
+								{
+									"name": "vendor_id",
+									"dataType": "string"
+								},
+								{
+									"name": "rate_code",
+									"dataType": "short"
+								},
+								{
+									"name": "store_and_fwd_flag",
+									"dataType": "boolean"
+								},
+								{
+									"name": "pickup_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "dropoff_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "passenger_count",
+									"dataType": "short"
+								},
+								{
+									"name": "trip_time_in_secs",
+									"dataType": "short"
+								},
+								{
+									"name": "trip_distance",
+									"dataType": "double"
+								},
+								{
+									"name": "pickup_longitude",
+									"dataType": "double"
+								},
+								{
+									"name": "pickup_latitude",
+									"dataType": "double"
+								},
+								{
+									"name": "dropoff_longitude",
+									"dataType": "double"
+								},
+								{
+									"name": "dropoff_latitude",
+									"dataType": "double"
+								},
+								{
+									"name": "Id",
+									"dataType": "short"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "delimited"
+								},
+								{
+									"name": "container",
+									"value": "adfdatamapper"
+								},
+								{
+									"name": "fileSystem",
+									"value": "adfdatamapper"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "skipInitialLoad",
+									"value": true
+								},
+								{
+									"name": "columnNamesAsHeader",
+									"value": true
+								},
+								{
+									"name": "columnDelimiter",
+									"value": ","
+								},
+								{
+									"name": "escapeChar",
+									"value": "\\\\"
+								},
+								{
+									"name": "quoteChar",
+									"value": "\\\""
+								},
+								{
+									"name": "folderPath",
+									"value": "Delimited/Trip data"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					},
+					{
+						"name": "adfdatamapper/Delimited/Trip fare",
+						"properties": {
+							"schema": [
+								{
+									"name": "medallion",
+									"dataType": "string"
+								},
+								{
+									"name": " hack_license",
+									"dataType": "string"
+								},
+								{
+									"name": " vendor_id",
+									"dataType": "string"
+								},
+								{
+									"name": " pickup_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": " payment_type",
+									"dataType": "string"
+								},
+								{
+									"name": " fare_amount",
+									"dataType": "double"
+								},
+								{
+									"name": " surcharge",
+									"dataType": "double"
+								},
+								{
+									"name": " mta_tax",
+									"dataType": "double"
+								},
+								{
+									"name": " tip_amount",
+									"dataType": "double"
+								},
+								{
+									"name": " tolls_amount",
+									"dataType": "double"
+								},
+								{
+									"name": " total_amount",
+									"dataType": "double"
+								},
+								{
+									"name": "Id",
+									"dataType": "short"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "delimited"
+								},
+								{
+									"name": "container",
+									"value": "adfdatamapper"
+								},
+								{
+									"name": "fileSystem",
+									"value": "adfdatamapper"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "skipInitialLoad",
+									"value": true
+								},
+								{
+									"name": "columnNamesAsHeader",
+									"value": true
+								},
+								{
+									"name": "columnDelimiter",
+									"value": ","
+								},
+								{
+									"name": "escapeChar",
+									"value": "\\\\"
+								},
+								{
+									"name": "quoteChar",
+									"value": "\\\""
+								},
+								{
+									"name": "folderPath",
+									"value": "Delimited/Trip fare"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureBlobGen2",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureBlobFS",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				}
+			}
+		],
+		"TargetConnectionsInfo": [
+			{
+				"TargetEntities": [
+					{
+						"name": "dbo.TripFare1220",
+						"properties": {
+							"schema": [
+								{
+									"name": "medallion",
+									"dataType": "string"
+								},
+								{
+									"name": " hack_license",
+									"dataType": "string"
+								},
+								{
+									"name": " vendor_id",
+									"dataType": "string"
+								},
+								{
+									"name": " pickup_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": " payment_type",
+									"dataType": "string"
+								},
+								{
+									"name": " fare_amount",
+									"dataType": "double"
+								},
+								{
+									"name": " surcharge",
+									"dataType": "double"
+								},
+								{
+									"name": " mta_tax",
+									"dataType": "double"
+								},
+								{
+									"name": " tip_amount",
+									"dataType": "double"
+								},
+								{
+									"name": " tolls_amount",
+									"dataType": "double"
+								},
+								{
+									"name": " total_amount",
+									"dataType": "double"
+								},
+								{
+									"name": "Id",
+									"dataType": "short"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "table"
+								},
+								{
+									"name": "store",
+									"value": "sqlserver"
+								},
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "TripFare1220"
+								},
+								{
+									"name": "databaseType",
+									"value": "databaseType"
+								},
+								{
+									"name": "database",
+									"value": "database"
+								},
+								{
+									"name": "deletable",
+									"value": false
+								},
+								{
+									"name": "insertable",
+									"value": true
+								},
+								{
+									"name": "updateable",
+									"value": false
+								},
+								{
+									"name": "upsertable",
+									"value": false
+								},
+								{
+									"name": "skipDuplicateMapInputs",
+									"value": true
+								},
+								{
+									"name": "skipDuplicateMapOutputs",
+									"value": true
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					},
+					{
+						"name": "dbo.TripData1220",
+						"properties": {
+							"schema": [
+								{
+									"name": "medallion",
+									"dataType": "string"
+								},
+								{
+									"name": "hack_license",
+									"dataType": "string"
+								},
+								{
+									"name": "vendor_id",
+									"dataType": "string"
+								},
+								{
+									"name": "rate_code",
+									"dataType": "short"
+								},
+								{
+									"name": "store_and_fwd_flag",
+									"dataType": "boolean"
+								},
+								{
+									"name": "pickup_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "dropoff_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "passenger_count",
+									"dataType": "short"
+								},
+								{
+									"name": "trip_time_in_secs",
+									"dataType": "short"
+								},
+								{
+									"name": "trip_distance",
+									"dataType": "double"
+								},
+								{
+									"name": "pickup_longitude",
+									"dataType": "double"
+								},
+								{
+									"name": "pickup_latitude",
+									"dataType": "double"
+								},
+								{
+									"name": "dropoff_longitude",
+									"dataType": "double"
+								},
+								{
+									"name": "dropoff_latitude",
+									"dataType": "double"
+								},
+								{
+									"name": "Id",
+									"dataType": "short"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "table"
+								},
+								{
+									"name": "store",
+									"value": "sqlserver"
+								},
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "TripData1220"
+								},
+								{
+									"name": "databaseType",
+									"value": "databaseType"
+								},
+								{
+									"name": "database",
+									"value": "database"
+								},
+								{
+									"name": "deletable",
+									"value": false
+								},
+								{
+									"name": "insertable",
+									"value": true
+								},
+								{
+									"name": "updateable",
+									"value": false
+								},
+								{
+									"name": "upsertable",
+									"value": false
+								},
+								{
+									"name": "skipDuplicateMapInputs",
+									"value": true
+								},
+								{
+									"name": "skipDuplicateMapOutputs",
+									"value": true
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureSqlDatabase",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureSqlDatabase",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				},
+				"DataMapperMappings": [
+					{
+						"targetEntityName": "dbo.TripData1220",
+						"sourceEntityName": "adfdatamapper/Delimited/Trip data",
+						"sourceConnectionReference": {
+							"connectionName": "AzureBlobGen2",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "dropoff_datetime",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "dropoff_datetime",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "dropoff_latitude",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "dropoff_latitude",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "dropoff_longitude",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "dropoff_longitude",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "hack_license",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "hack_license",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Id",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Id",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "medallion",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "medallion",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "passenger_count",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "passenger_count",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "pickup_datetime",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "pickup_datetime",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "pickup_latitude",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "pickup_latitude",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "pickup_longitude",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "pickup_longitude",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "rate_code",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "rate_code",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "store_and_fwd_flag",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "store_and_fwd_flag",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "trip_distance",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "trip_distance",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "trip_time_in_secs",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "trip_time_in_secs",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "vendor_id",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "vendor_id",
+										"entity": "adfdatamapper/Delimited/Trip data",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"targetEntityName": "dbo.TripFare1220",
+						"sourceEntityName": "adfdatamapper/Delimited/Trip fare",
+						"sourceConnectionReference": {
+							"connectionName": "AzureBlobGen2",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": " fare_amount",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " fare_amount",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": " hack_license",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " hack_license",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": " mta_tax",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " mta_tax",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": " payment_type",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " payment_type",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": " pickup_datetime",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " pickup_datetime",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": " surcharge",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " surcharge",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": " tip_amount",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " tip_amount",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": " tolls_amount",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " tolls_amount",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": " total_amount",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " total_amount",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": " vendor_id",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " vendor_id",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Id",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Id",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "medallion",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "medallion",
+										"entity": "adfdatamapper/Delimited/Trip fare",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					}
+				],
+				"Relationships": []
+			}
+		],
+		"Policy": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1
+			},
+			"mode": "Microbatch"
+		},
+		"status": "Stopped",
+		"id": "9c4ae6db3c524e369ee7177a897f88fa"
+	}
+}

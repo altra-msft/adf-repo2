@@ -1,0 +1,49 @@
+{
+	"name": "flowletWithSingleSource",
+	"properties": {
+		"type": "Flowlet",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "Filter1"
+				},
+				{
+					"name": "output1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ID as long,",
+				"          ENTERDT as timestamp,",
+				"          NAME as string,",
+				"          FSID as string,",
+				"          DEPT as string,",
+				"          WORKLOCATIONS as string,",
+				"          ETLInsertTimestamp as timestamp,",
+				"          Submitted as string,",
+				"          SHIFT_DESCR as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: 'TEST',",
+				"     tableName: '227764559_source',",
+				"     isolationLevel: 'READ_UNCOMMITTED') ~> source1",
+				"source1 filter(ID>=4) ~> Filter1",
+				"Filter1 output() ~> output1"
+			]
+		}
+	}
+}

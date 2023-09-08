@@ -1,0 +1,81 @@
+{
+	"name": "DS_Gen2_NotProvided",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobGen2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"par_adls_uri": {
+				"type": "string",
+				"defaultValue": "abfs://e2etest.blob.windows.net"
+			},
+			"par_tenant": {
+				"type": "string",
+				"defaultValue": "GermanyIST"
+			},
+			"par_subscriptionId": {
+				"type": "string",
+				"defaultValue": "2wsee34-2dedasd-2esdgrb-333"
+			},
+			"par_resourceGroupName": {
+				"type": "string",
+				"defaultValue": "e2etest"
+			},
+			"par_container": {
+				"type": "string",
+				"defaultValue": "dataquality"
+			},
+			"par_directory": {
+				"type": "string",
+				"defaultValue": "data"
+			},
+			"par_columnDelimiter": {
+				"type": "string",
+				"defaultValue": ":"
+			},
+			"par_rowDelimiter": {
+				"type": "string",
+				"defaultValue": "\\r\\n"
+			},
+			"par_firstRowHeader": {
+				"type": "bool",
+				"defaultValue": true
+			}
+		},
+		"folder": {
+			"name": "DS_Datalake_Gen2"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().par_directory",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().par_container",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": {
+				"value": "@dataset().par_columnDelimiter",
+				"type": "Expression"
+			},
+			"rowDelimiter": {
+				"value": "@dataset().par_rowDelimiter",
+				"type": "Expression"
+			},
+			"escapeChar": "\\",
+			"firstRowAsHeader": {
+				"value": "@dataset().par_firstRowHeader",
+				"type": "Expression"
+			},
+			"quoteChar": ""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

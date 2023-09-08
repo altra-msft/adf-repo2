@@ -1,0 +1,475 @@
+{
+	"name": "AdfCDC6087043",
+	"properties": {
+		"SourceConnectionsInfo": [
+			{
+				"SourceEntities": [
+					{
+						"name": "dbo.TripDataTable0411",
+						"properties": {
+							"schema": [
+								{
+									"name": "medallion",
+									"dataType": "string"
+								},
+								{
+									"name": "hack_license",
+									"dataType": "string"
+								},
+								{
+									"name": "vendor_id",
+									"dataType": "string"
+								},
+								{
+									"name": "rate_code",
+									"dataType": "short"
+								},
+								{
+									"name": "store_and_fwd_flag",
+									"dataType": "boolean"
+								},
+								{
+									"name": "pickup_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "dropoff_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "passenger_count",
+									"dataType": "short"
+								},
+								{
+									"name": "trip_time_in_secs",
+									"dataType": "integer"
+								},
+								{
+									"name": "trip_distance",
+									"dataType": "double"
+								},
+								{
+									"name": "pickup_longitude",
+									"dataType": "double"
+								},
+								{
+									"name": "pickup_latitude",
+									"dataType": "double"
+								},
+								{
+									"name": "dropoff_longitude",
+									"dataType": "double"
+								},
+								{
+									"name": "dropoff_latitude",
+									"dataType": "double"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "TripDataTable0411"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "waterMarkColumn",
+									"value": "pickup_datetime"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureSqlDatabase",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureSqlDatabase",
+					"type": "linkedservicetype",
+					"isInlineDataset": true,
+					"commonDslConnectorProperties": [
+						{
+							"name": "allowSchemaDrift",
+							"value": true
+						},
+						{
+							"name": "inferDriftedColumnTypes",
+							"value": true
+						},
+						{
+							"name": "format",
+							"value": "table"
+						},
+						{
+							"name": "store",
+							"value": "sqlserver"
+						},
+						{
+							"name": "databaseType",
+							"value": "databaseType"
+						},
+						{
+							"name": "database",
+							"value": "database"
+						},
+						{
+							"name": "skipInitialLoad",
+							"value": true
+						}
+					]
+				}
+			}
+		],
+		"TargetConnectionsInfo": [
+			{
+				"TargetEntities": [
+					{
+						"name": "04-11-2022/Output1",
+						"properties": {
+							"schema": [
+								{
+									"name": "medallion",
+									"dataType": "string"
+								},
+								{
+									"name": "hack_license",
+									"dataType": "string"
+								},
+								{
+									"name": "vendor_id",
+									"dataType": "string"
+								},
+								{
+									"name": "rate_code",
+									"dataType": "short"
+								},
+								{
+									"name": "store_and_fwd_flag",
+									"dataType": "boolean"
+								},
+								{
+									"name": "pickup_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "dropoff_datetime",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "passenger_count",
+									"dataType": "short"
+								},
+								{
+									"name": "trip_time_in_secs",
+									"dataType": "integer"
+								},
+								{
+									"name": "trip_distance",
+									"dataType": "double"
+								},
+								{
+									"name": "pickup_longitude",
+									"dataType": "double"
+								},
+								{
+									"name": "pickup_latitude",
+									"dataType": "double"
+								},
+								{
+									"name": "dropoff_longitude",
+									"dataType": "double"
+								},
+								{
+									"name": "dropoff_latitude",
+									"dataType": "double"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "container",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "fileSystem",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "folderPath",
+									"value": "Output1"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureBlobGen2",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureBlobFS",
+					"type": "linkedservicetype",
+					"isInlineDataset": true,
+					"commonDslConnectorProperties": [
+						{
+							"name": "allowSchemaDrift",
+							"value": true
+						},
+						{
+							"name": "inferDriftedColumnTypes",
+							"value": true
+						},
+						{
+							"name": "format",
+							"value": "delimited"
+						},
+						{
+							"name": "columnNamesAsHeader",
+							"value": true
+						},
+						{
+							"name": "columnDelimiter",
+							"value": ","
+						},
+						{
+							"name": "escapeChar",
+							"value": "\\\\"
+						},
+						{
+							"name": "quoteChar",
+							"value": "\\\""
+						}
+					]
+				},
+				"DataMapperMappings": [
+					{
+						"targetEntityName": "04-11-2022/Output1",
+						"sourceEntityName": "dbo.TripDataTable0411",
+						"sourceConnectionReference": {
+							"connectionName": "AzureSqlDatabase",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "dropoff_datetime",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "dropoff_datetime",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "dropoff_latitude",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "dropoff_latitude",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "dropoff_longitude",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "dropoff_longitude",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "hack_license",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "hack_license",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "medallion",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "medallion",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "passenger_count",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "passenger_count",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "pickup_datetime",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "pickup_datetime",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "pickup_latitude",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "pickup_latitude",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "pickup_longitude",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "pickup_longitude",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "rate_code",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "rate_code",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "store_and_fwd_flag",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "store_and_fwd_flag",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "trip_distance",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "trip_distance",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "trip_time_in_secs",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "trip_time_in_secs",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "vendor_id",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "vendor_id",
+										"entity": "dbo.TripDataTable0411",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					}
+				],
+				"Relationships": []
+			}
+		],
+		"Policy": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"mode": "Microbatch"
+		},
+		"allowVNetOverride": false,
+		"id": "0fc3cb066a544d5e8617ce95a9fc2300"
+	}
+}

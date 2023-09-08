@@ -1,0 +1,19 @@
+{
+	"name": "DBForMySql",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureMySql",
+		"typeProperties": {
+			"connectionString": "Server=adftestcanarymysql.mysql.database.azure.com;Port=3306;Database=adftest;UID=adfdataflow@adftestcanarymysql;SSLMode=1;UseSystemTrustStore=0",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "adftestcanarymysql-pwd"
+			}
+		}
+	}
+}

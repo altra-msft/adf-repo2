@@ -1,0 +1,56 @@
+{
+	"name": "testDebugCluster",
+	"properties": {
+		"activities": [
+			{
+				"name": "testingDataFlow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "Wait1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "testingDataFlow",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "None"
+				}
+			},
+			{
+				"name": "Wait1",
+				"description": "we added this wait activity for a reason - please don't delete",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 30
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-04-20T11:40:22Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

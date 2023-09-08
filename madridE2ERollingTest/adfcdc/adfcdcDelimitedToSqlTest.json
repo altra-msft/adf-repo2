@@ -1,0 +1,2116 @@
+{
+	"name": "adfcdcDelimitedToSqlTest",
+	"properties": {
+		"SourceConnectionsInfo": [
+			{
+				"SourceEntities": [
+					{
+						"name": "04-11-2022/Air Pollution",
+						"properties": {
+							"schema": [
+								{
+									"name": "Country",
+									"dataType": "string"
+								},
+								{
+									"name": "City",
+									"dataType": "string"
+								},
+								{
+									"name": "AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "AQI Category",
+									"dataType": "string"
+								},
+								{
+									"name": "CO AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "CO AQI Category",
+									"dataType": "string"
+								},
+								{
+									"name": "Ozone AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "Ozone AQI Category",
+									"dataType": "string"
+								},
+								{
+									"name": "NO2 AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "NO2 AQI Category",
+									"dataType": "string"
+								},
+								{
+									"name": "PM2.5 AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "PM2.5 AQI Category",
+									"dataType": "string"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "delimited"
+								},
+								{
+									"name": "container",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "fileSystem",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "skipInitialLoad",
+									"value": true
+								},
+								{
+									"name": "columnNamesAsHeader",
+									"value": true
+								},
+								{
+									"name": "columnDelimiter",
+									"value": ","
+								},
+								{
+									"name": "escapeChar",
+									"value": "\\\\"
+								},
+								{
+									"name": "quoteChar",
+									"value": "\\\""
+								},
+								{
+									"name": "folderPath",
+									"value": "Air Pollution"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					},
+					{
+						"name": "04-11-2022/Airline Delay",
+						"properties": {
+							"schema": [
+								{
+									"name": "year",
+									"dataType": "short"
+								},
+								{
+									"name": "month",
+									"dataType": "short"
+								},
+								{
+									"name": "carrier",
+									"dataType": "string"
+								},
+								{
+									"name": "carrier_name",
+									"dataType": "string"
+								},
+								{
+									"name": "airport",
+									"dataType": "string"
+								},
+								{
+									"name": "airport_name",
+									"dataType": "string"
+								},
+								{
+									"name": "arr_flights",
+									"dataType": "double"
+								},
+								{
+									"name": "arr_del15",
+									"dataType": "double"
+								},
+								{
+									"name": "carrier_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "weather_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "nas_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "security_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "late_aircraft_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "arr_cancelled",
+									"dataType": "double"
+								},
+								{
+									"name": "arr_diverted",
+									"dataType": "double"
+								},
+								{
+									"name": "arr_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "carrier_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "weather_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "nas_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "security_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "late_aircraft_delay",
+									"dataType": "double"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "delimited"
+								},
+								{
+									"name": "container",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "fileSystem",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "skipInitialLoad",
+									"value": true
+								},
+								{
+									"name": "columnNamesAsHeader",
+									"value": true
+								},
+								{
+									"name": "columnDelimiter",
+									"value": ","
+								},
+								{
+									"name": "escapeChar",
+									"value": "\\\\"
+								},
+								{
+									"name": "quoteChar",
+									"value": "\\\""
+								},
+								{
+									"name": "folderPath",
+									"value": "Airline Delay"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					},
+					{
+						"name": "04-11-2022/Credit Card",
+						"properties": {
+							"schema": [
+								{
+									"name": "CLIENTNUM",
+									"dataType": "integer"
+								},
+								{
+									"name": "Attrition_Flag",
+									"dataType": "string"
+								},
+								{
+									"name": "Customer_Age",
+									"dataType": "short"
+								},
+								{
+									"name": "Gender",
+									"dataType": "string"
+								},
+								{
+									"name": "Dependent_count",
+									"dataType": "short"
+								},
+								{
+									"name": "Education_Level",
+									"dataType": "string"
+								},
+								{
+									"name": "Marital_Status",
+									"dataType": "string"
+								},
+								{
+									"name": "Income_Category",
+									"dataType": "string"
+								},
+								{
+									"name": "Card_Category",
+									"dataType": "string"
+								},
+								{
+									"name": "Months_on_book",
+									"dataType": "short"
+								},
+								{
+									"name": "Total_Relationship_Count",
+									"dataType": "short"
+								},
+								{
+									"name": "Months_Inactive_12_mon",
+									"dataType": "short"
+								},
+								{
+									"name": "Contacts_Count_12_mon",
+									"dataType": "short"
+								},
+								{
+									"name": "Credit_Limit",
+									"dataType": "double"
+								},
+								{
+									"name": "Total_Revolving_Bal",
+									"dataType": "short"
+								},
+								{
+									"name": "Avg_Open_To_Buy",
+									"dataType": "double"
+								},
+								{
+									"name": "Total_Amt_Chng_Q4_Q1",
+									"dataType": "double"
+								},
+								{
+									"name": "Total_Trans_Amt",
+									"dataType": "short"
+								},
+								{
+									"name": "Total_Trans_Ct",
+									"dataType": "short"
+								},
+								{
+									"name": "Total_Ct_Chng_Q4_Q1",
+									"dataType": "double"
+								},
+								{
+									"name": "Avg_Utilization_Ratio",
+									"dataType": "double"
+								},
+								{
+									"name": "Naive_Bayes",
+									"dataType": "double"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "delimited"
+								},
+								{
+									"name": "container",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "fileSystem",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "skipInitialLoad",
+									"value": true
+								},
+								{
+									"name": "columnNamesAsHeader",
+									"value": true
+								},
+								{
+									"name": "columnDelimiter",
+									"value": ","
+								},
+								{
+									"name": "escapeChar",
+									"value": "\\\\"
+								},
+								{
+									"name": "quoteChar",
+									"value": "\\\""
+								},
+								{
+									"name": "folderPath",
+									"value": "Credit Card"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					},
+					{
+						"name": "04-11-2022/Elon Musk Tweets",
+						"properties": {
+							"schema": [
+								{
+									"name": "_c0",
+									"dataType": "string"
+								},
+								{
+									"name": "Unnamed: 0",
+									"dataType": "string"
+								},
+								{
+									"name": "Datetime",
+									"dataType": "string"
+								},
+								{
+									"name": "Tweet Id",
+									"dataType": "string"
+								},
+								{
+									"name": "Text",
+									"dataType": "string"
+								},
+								{
+									"name": "Username",
+									"dataType": "string"
+								},
+								{
+									"name": "location",
+									"dataType": "string"
+								},
+								{
+									"name": "reply count",
+									"dataType": "string"
+								},
+								{
+									"name": "retweet count",
+									"dataType": "string"
+								},
+								{
+									"name": "like count",
+									"dataType": "string"
+								},
+								{
+									"name": "language",
+									"dataType": "string"
+								},
+								{
+									"name": "Twitter Access Point",
+									"dataType": "string"
+								},
+								{
+									"name": "Follower Count",
+									"dataType": "string"
+								},
+								{
+									"name": " Friends Count",
+									"dataType": "string"
+								},
+								{
+									"name": "verified",
+									"dataType": "string"
+								},
+								{
+									"name": "Date",
+									"dataType": "string"
+								},
+								{
+									"name": "mentions",
+									"dataType": "string"
+								},
+								{
+									"name": "sentiment",
+									"dataType": "string"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "delimited"
+								},
+								{
+									"name": "container",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "fileSystem",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "skipInitialLoad",
+									"value": true
+								},
+								{
+									"name": "columnNamesAsHeader",
+									"value": true
+								},
+								{
+									"name": "columnDelimiter",
+									"value": ","
+								},
+								{
+									"name": "escapeChar",
+									"value": "\\\\"
+								},
+								{
+									"name": "quoteChar",
+									"value": "\\\""
+								},
+								{
+									"name": "folderPath",
+									"value": "Elon Musk Tweets"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureBlobGen2",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureBlobFS",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				}
+			}
+		],
+		"TargetConnectionsInfo": [
+			{
+				"TargetEntities": [
+					{
+						"name": "dbo.AirPollutionTable",
+						"properties": {
+							"schema": [
+								{
+									"name": "Country",
+									"dataType": "string"
+								},
+								{
+									"name": "City",
+									"dataType": "string"
+								},
+								{
+									"name": "AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "AQI Category",
+									"dataType": "string"
+								},
+								{
+									"name": "CO AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "CO AQI Category",
+									"dataType": "string"
+								},
+								{
+									"name": "Ozone AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "Ozone AQI Category",
+									"dataType": "string"
+								},
+								{
+									"name": "NO2 AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "NO2 AQI Category",
+									"dataType": "string"
+								},
+								{
+									"name": "PM2.5 AQI Value",
+									"dataType": "short"
+								},
+								{
+									"name": "PM2.5 AQI Category",
+									"dataType": "string"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "table"
+								},
+								{
+									"name": "store",
+									"value": "sqlserver"
+								},
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "AirPollutionTable"
+								},
+								{
+									"name": "databaseType",
+									"value": "databaseType"
+								},
+								{
+									"name": "database",
+									"value": "database"
+								},
+								{
+									"name": "deletable",
+									"value": false
+								},
+								{
+									"name": "insertable",
+									"value": true
+								},
+								{
+									"name": "updateable",
+									"value": false
+								},
+								{
+									"name": "upsertable",
+									"value": false
+								},
+								{
+									"name": "skipDuplicateMapInputs",
+									"value": true
+								},
+								{
+									"name": "skipDuplicateMapOutputs",
+									"value": true
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					},
+					{
+						"name": "dbo.AirlineDelayTable",
+						"properties": {
+							"schema": [
+								{
+									"name": "year",
+									"dataType": "short"
+								},
+								{
+									"name": "month",
+									"dataType": "short"
+								},
+								{
+									"name": "carrier",
+									"dataType": "string"
+								},
+								{
+									"name": "carrier_name",
+									"dataType": "string"
+								},
+								{
+									"name": "airport",
+									"dataType": "string"
+								},
+								{
+									"name": "airport_name",
+									"dataType": "string"
+								},
+								{
+									"name": "arr_flights",
+									"dataType": "double"
+								},
+								{
+									"name": "arr_del15",
+									"dataType": "double"
+								},
+								{
+									"name": "carrier_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "weather_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "nas_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "security_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "late_aircraft_ct",
+									"dataType": "double"
+								},
+								{
+									"name": "arr_cancelled",
+									"dataType": "double"
+								},
+								{
+									"name": "arr_diverted",
+									"dataType": "double"
+								},
+								{
+									"name": "arr_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "carrier_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "weather_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "nas_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "security_delay",
+									"dataType": "double"
+								},
+								{
+									"name": "late_aircraft_delay",
+									"dataType": "double"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "table"
+								},
+								{
+									"name": "store",
+									"value": "sqlserver"
+								},
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "AirlineDelayTable"
+								},
+								{
+									"name": "databaseType",
+									"value": "databaseType"
+								},
+								{
+									"name": "database",
+									"value": "database"
+								},
+								{
+									"name": "deletable",
+									"value": false
+								},
+								{
+									"name": "insertable",
+									"value": true
+								},
+								{
+									"name": "updateable",
+									"value": false
+								},
+								{
+									"name": "upsertable",
+									"value": false
+								},
+								{
+									"name": "skipDuplicateMapInputs",
+									"value": true
+								},
+								{
+									"name": "skipDuplicateMapOutputs",
+									"value": true
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					},
+					{
+						"name": "dbo.CreditCardTable",
+						"properties": {
+							"schema": [
+								{
+									"name": "CLIENTNUM",
+									"dataType": "integer"
+								},
+								{
+									"name": "Attrition_Flag",
+									"dataType": "string"
+								},
+								{
+									"name": "Customer_Age",
+									"dataType": "short"
+								},
+								{
+									"name": "Gender",
+									"dataType": "string"
+								},
+								{
+									"name": "Dependent_count",
+									"dataType": "short"
+								},
+								{
+									"name": "Education_Level",
+									"dataType": "string"
+								},
+								{
+									"name": "Marital_Status",
+									"dataType": "string"
+								},
+								{
+									"name": "Income_Category",
+									"dataType": "string"
+								},
+								{
+									"name": "Card_Category",
+									"dataType": "string"
+								},
+								{
+									"name": "Months_on_book",
+									"dataType": "short"
+								},
+								{
+									"name": "Total_Relationship_Count",
+									"dataType": "short"
+								},
+								{
+									"name": "Months_Inactive_12_mon",
+									"dataType": "short"
+								},
+								{
+									"name": "Contacts_Count_12_mon",
+									"dataType": "short"
+								},
+								{
+									"name": "Credit_Limit",
+									"dataType": "double"
+								},
+								{
+									"name": "Total_Revolving_Bal",
+									"dataType": "short"
+								},
+								{
+									"name": "Avg_Open_To_Buy",
+									"dataType": "double"
+								},
+								{
+									"name": "Total_Amt_Chng_Q4_Q1",
+									"dataType": "double"
+								},
+								{
+									"name": "Total_Trans_Amt",
+									"dataType": "short"
+								},
+								{
+									"name": "Total_Trans_Ct",
+									"dataType": "short"
+								},
+								{
+									"name": "Total_Ct_Chng_Q4_Q1",
+									"dataType": "double"
+								},
+								{
+									"name": "Avg_Utilization_Ratio",
+									"dataType": "double"
+								},
+								{
+									"name": "Naive_Bayes",
+									"dataType": "double"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "table"
+								},
+								{
+									"name": "store",
+									"value": "sqlserver"
+								},
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "CreditCardTable"
+								},
+								{
+									"name": "databaseType",
+									"value": "databaseType"
+								},
+								{
+									"name": "database",
+									"value": "database"
+								},
+								{
+									"name": "deletable",
+									"value": false
+								},
+								{
+									"name": "insertable",
+									"value": true
+								},
+								{
+									"name": "updateable",
+									"value": false
+								},
+								{
+									"name": "upsertable",
+									"value": false
+								},
+								{
+									"name": "skipDuplicateMapInputs",
+									"value": true
+								},
+								{
+									"name": "skipDuplicateMapOutputs",
+									"value": true
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					},
+					{
+						"name": "dbo.ElonMuskTweetsTable",
+						"properties": {
+							"schema": [
+								{
+									"name": "_c0",
+									"dataType": "string"
+								},
+								{
+									"name": "Unnamed: 0",
+									"dataType": "string"
+								},
+								{
+									"name": "Datetime",
+									"dataType": "string"
+								},
+								{
+									"name": "Tweet Id",
+									"dataType": "string"
+								},
+								{
+									"name": "Text",
+									"dataType": "string"
+								},
+								{
+									"name": "Username",
+									"dataType": "string"
+								},
+								{
+									"name": "location",
+									"dataType": "string"
+								},
+								{
+									"name": "reply count",
+									"dataType": "string"
+								},
+								{
+									"name": "retweet count",
+									"dataType": "string"
+								},
+								{
+									"name": "like count",
+									"dataType": "string"
+								},
+								{
+									"name": "language",
+									"dataType": "string"
+								},
+								{
+									"name": "Twitter Access Point",
+									"dataType": "string"
+								},
+								{
+									"name": "Follower Count",
+									"dataType": "string"
+								},
+								{
+									"name": " Friends Count",
+									"dataType": "string"
+								},
+								{
+									"name": "verified",
+									"dataType": "string"
+								},
+								{
+									"name": "Date",
+									"dataType": "string"
+								},
+								{
+									"name": "mentions",
+									"dataType": "string"
+								},
+								{
+									"name": "sentiment",
+									"dataType": "string"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "table"
+								},
+								{
+									"name": "store",
+									"value": "sqlserver"
+								},
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "ElonMuskTweetsTable"
+								},
+								{
+									"name": "databaseType",
+									"value": "databaseType"
+								},
+								{
+									"name": "database",
+									"value": "database"
+								},
+								{
+									"name": "deletable",
+									"value": false
+								},
+								{
+									"name": "insertable",
+									"value": true
+								},
+								{
+									"name": "updateable",
+									"value": false
+								},
+								{
+									"name": "upsertable",
+									"value": false
+								},
+								{
+									"name": "skipDuplicateMapInputs",
+									"value": true
+								},
+								{
+									"name": "skipDuplicateMapOutputs",
+									"value": true
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureSqlDatabase",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureSqlDatabase",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				},
+				"DataMapperMappings": [
+					{
+						"targetEntityName": "dbo.AirPollutionTable",
+						"sourceEntityName": "04-11-2022/Air Pollution",
+						"sourceConnectionReference": {
+							"connectionName": "AzureBlobGen2",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "AQI Category",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "AQI Category",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "AQI Value",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "AQI Value",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "City",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "City",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "CO AQI Category",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "CO AQI Category",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "CO AQI Value",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "CO AQI Value",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Country",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Country",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "NO2 AQI Category",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "NO2 AQI Category",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "NO2 AQI Value",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "NO2 AQI Value",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Ozone AQI Category",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Ozone AQI Category",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Ozone AQI Value",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Ozone AQI Value",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "PM2.5 AQI Category",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "PM2.5 AQI Category",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "PM2.5 AQI Value",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "PM2.5 AQI Value",
+										"entity": "04-11-2022/Air Pollution",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"targetEntityName": "dbo.AirlineDelayTable",
+						"sourceEntityName": "04-11-2022/Airline Delay",
+						"sourceConnectionReference": {
+							"connectionName": "AzureBlobGen2",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "airport",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "airport",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "airport_name",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "airport_name",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "arr_cancelled",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "arr_cancelled",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "arr_del15",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "arr_del15",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "arr_delay",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "arr_delay",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "arr_diverted",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "arr_diverted",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "arr_flights",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "arr_flights",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "carrier",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "carrier",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "carrier_ct",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "carrier_ct",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "carrier_delay",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "carrier_delay",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "carrier_name",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "carrier_name",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "late_aircraft_ct",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "late_aircraft_ct",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "late_aircraft_delay",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "late_aircraft_delay",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "month",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "month",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "nas_ct",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "nas_ct",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "nas_delay",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "nas_delay",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "security_ct",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "security_ct",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "security_delay",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "security_delay",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "weather_ct",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "weather_ct",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "weather_delay",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "weather_delay",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "year",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "year",
+										"entity": "04-11-2022/Airline Delay",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"targetEntityName": "dbo.CreditCardTable",
+						"sourceEntityName": "04-11-2022/Credit Card",
+						"sourceConnectionReference": {
+							"connectionName": "AzureBlobGen2",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "Attrition_Flag",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Attrition_Flag",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Avg_Open_To_Buy",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Avg_Open_To_Buy",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Avg_Utilization_Ratio",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Avg_Utilization_Ratio",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Card_Category",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Card_Category",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "CLIENTNUM",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "CLIENTNUM",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Contacts_Count_12_mon",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Contacts_Count_12_mon",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Credit_Limit",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Credit_Limit",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Customer_Age",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Customer_Age",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Dependent_count",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Dependent_count",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Education_Level",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Education_Level",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Gender",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Gender",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Income_Category",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Income_Category",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Marital_Status",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Marital_Status",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Months_Inactive_12_mon",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Months_Inactive_12_mon",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Months_on_book",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Months_on_book",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Naive_Bayes",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Naive_Bayes",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Total_Amt_Chng_Q4_Q1",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Total_Amt_Chng_Q4_Q1",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Total_Ct_Chng_Q4_Q1",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Total_Ct_Chng_Q4_Q1",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Total_Relationship_Count",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Total_Relationship_Count",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Total_Revolving_Bal",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Total_Revolving_Bal",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Total_Trans_Amt",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Total_Trans_Amt",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Total_Trans_Ct",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Total_Trans_Ct",
+										"entity": "04-11-2022/Credit Card",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"targetEntityName": "dbo.ElonMuskTweetsTable",
+						"sourceEntityName": "04-11-2022/Elon Musk Tweets",
+						"sourceConnectionReference": {
+							"connectionName": "AzureBlobGen2",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": " Friends Count",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": " Friends Count",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "_c0",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "_c0",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Date",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Date",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Datetime",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Datetime",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Follower Count",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Follower Count",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "language",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "language",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "like count",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "like count",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "location",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "location",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "mentions",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "mentions",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "reply count",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "reply count",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "retweet count",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "retweet count",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "sentiment",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "sentiment",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Text",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Text",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Tweet Id",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Tweet Id",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Twitter Access Point",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Twitter Access Point",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Unnamed: 0",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Unnamed: 0",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Username",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Username",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "verified",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "verified",
+										"entity": "04-11-2022/Elon Musk Tweets",
+										"entityConnectionReference": {
+											"connectionName": "AzureBlobGen2",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					}
+				],
+				"Relationships": []
+			}
+		],
+		"Policy": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15
+			},
+			"mode": "Microbatch"
+		},
+		"status": "Stopped",
+		"id": "78d4c74b5bff42a4be3d4ed77a73baff"
+	}
+}

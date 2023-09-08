@@ -1,0 +1,16 @@
+{
+	"name": "FakeDynamics365Dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FakeDynamics365LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DynamicsEntity",
+		"schema": [],
+		"typeProperties": {
+			"entityName": "test"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

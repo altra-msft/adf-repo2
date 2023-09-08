@@ -1,0 +1,13 @@
+{
+	"name": "SynapseDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLDW",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

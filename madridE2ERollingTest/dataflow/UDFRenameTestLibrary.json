@@ -1,0 +1,14 @@
+{
+	"name": "UDFRenameTestLibrary",
+	"properties": {
+		"type": "UDFLibrary",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"function1212(string) as string = reverse(i1)"
+			]
+		}
+	}
+}

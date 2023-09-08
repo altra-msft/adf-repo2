@@ -1,0 +1,54 @@
+{
+	"name": "E2EAzurePostgreSqlTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "name",
+				"type": "\"char\"",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "type",
+				"type": "\"char\"",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "birthday",
+				"type": "abstime",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "size",
+				"type": "\"char\"",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "color",
+				"type": "\"char\"",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "pets"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

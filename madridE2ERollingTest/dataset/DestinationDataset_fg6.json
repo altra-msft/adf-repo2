@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_fg6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "AdfCanaryTestSpark3",
+			"table": "approxDistinctCnt"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,16 @@
+{
+	"name": "Web",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "Web",
+		"typeProperties": {
+			"url": "https://ms.portal.azure.com/#home",
+			"authenticationType": "Anonymous"
+		},
+		"connectVia": {
+			"referenceName": "MadridE2E",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

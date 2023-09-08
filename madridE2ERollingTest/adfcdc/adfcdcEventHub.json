@@ -1,0 +1,293 @@
+{
+	"name": "adfcdcEventHub",
+	"properties": {
+		"SourceConnectionsInfo": [
+			{
+				"SourceEntities": [
+					{
+						"name": "cdctest",
+						"properties": {
+							"schema": [
+								{
+									"name": "key",
+									"dataType": "binary"
+								},
+								{
+									"name": "value",
+									"dataType": "binary"
+								},
+								{
+									"name": "topic",
+									"dataType": "string"
+								},
+								{
+									"name": "partition",
+									"dataType": "integer"
+								},
+								{
+									"name": "offset",
+									"dataType": "long"
+								},
+								{
+									"name": "timestamp",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "timestampType",
+									"dataType": "integer"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "passthrough"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "eventHubName",
+									"value": "cdctest"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AdfEventHub",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "EventHubs",
+					"type": "linkedservicetype",
+					"isInlineDataset": true,
+					"commonDslConnectorProperties": [
+						{
+							"name": "allowSchemaDrift",
+							"value": true
+						},
+						{
+							"name": "inferDriftedColumnTypes",
+							"value": true
+						},
+						{
+							"name": "store",
+							"value": "eventhubs"
+						}
+					]
+				}
+			}
+		],
+		"TargetConnectionsInfo": [
+			{
+				"TargetEntities": [
+					{
+						"name": "04-11-2022/Output1",
+						"properties": {
+							"schema": [
+								{
+									"name": "key",
+									"dataType": "binary"
+								},
+								{
+									"name": "value",
+									"dataType": "binary"
+								},
+								{
+									"name": "topic",
+									"dataType": "string"
+								},
+								{
+									"name": "partition",
+									"dataType": "integer"
+								},
+								{
+									"name": "offset",
+									"dataType": "long"
+								},
+								{
+									"name": "timestamp",
+									"dataType": "timestamp"
+								},
+								{
+									"name": "timestampType",
+									"dataType": "integer"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "container",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "fileSystem",
+									"value": "04-11-2022"
+								},
+								{
+									"name": "folderPath",
+									"value": "Output1"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureBlobGen2",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureBlobFS",
+					"type": "linkedservicetype",
+					"isInlineDataset": true,
+					"commonDslConnectorProperties": [
+						{
+							"name": "allowSchemaDrift",
+							"value": true
+						},
+						{
+							"name": "inferDriftedColumnTypes",
+							"value": true
+						},
+						{
+							"name": "format",
+							"value": "json"
+						}
+					]
+				},
+				"DataMapperMappings": [
+					{
+						"targetEntityName": "04-11-2022/Output1",
+						"sourceEntityName": "cdctest",
+						"sourceConnectionReference": {
+							"connectionName": "AdfEventHub",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "key",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "key",
+										"entity": "cdctest",
+										"entityConnectionReference": {
+											"connectionName": "AdfEventHub",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "offset",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "offset",
+										"entity": "cdctest",
+										"entityConnectionReference": {
+											"connectionName": "AdfEventHub",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "partition",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "partition",
+										"entity": "cdctest",
+										"entityConnectionReference": {
+											"connectionName": "AdfEventHub",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "timestamp",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "timestamp",
+										"entity": "cdctest",
+										"entityConnectionReference": {
+											"connectionName": "AdfEventHub",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "timestampType",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "timestampType",
+										"entity": "cdctest",
+										"entityConnectionReference": {
+											"connectionName": "AdfEventHub",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "topic",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "topic",
+										"entity": "cdctest",
+										"entityConnectionReference": {
+											"connectionName": "AdfEventHub",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "value",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "value",
+										"entity": "cdctest",
+										"entityConnectionReference": {
+											"connectionName": "AdfEventHub",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					}
+				],
+				"Relationships": []
+			}
+		],
+		"Policy": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15
+			},
+			"mode": "Microbatch"
+		},
+		"status": "Stopped",
+		"allowVNetOverride": false,
+		"id": "ba25028a3fa1414988c22f20da038e7c"
+	}
+}

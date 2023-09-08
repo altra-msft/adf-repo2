@@ -1,0 +1,246 @@
+{
+	"name": "SourceDataset_klf",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "TestSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "IINTEGER",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "IBIT",
+				"type": "bit",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "ITINYINT",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "ISMALLINT",
+				"type": "smallint",
+				"precision": 5,
+				"scale": 0
+			},
+			{
+				"name": "IBIGINT",
+				"type": "bigint",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "ISMALLMONEY",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 4
+			},
+			{
+				"name": "IMONEY",
+				"type": "decimal",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "INUMERIC",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "INUMERIC38",
+				"type": "decimal",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "INUMERIC3838",
+				"type": "decimal",
+				"precision": 38,
+				"scale": 38
+			},
+			{
+				"name": "IDECIMAL",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "IDECIMAL38",
+				"type": "decimal",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "IDECIMAL3838",
+				"type": "decimal",
+				"precision": 38,
+				"scale": 38
+			},
+			{
+				"name": "IFLOAT",
+				"type": "float",
+				"precision": 53,
+				"scale": 0
+			},
+			{
+				"name": "IREAL",
+				"type": "real",
+				"precision": 24,
+				"scale": 0
+			},
+			{
+				"name": "ICHAR",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "INCHAR",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "IVARCHAR",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "INVARCHAR",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "IVARCHARMAX",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "INVARCHARMAX",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "ITEXT",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "INTEXT",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "IDATE",
+				"type": "date",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "ITIME",
+				"type": "datetime2",
+				"precision": 27,
+				"scale": 7
+			},
+			{
+				"name": "ISMALLDATETIME",
+				"type": "datetime2",
+				"precision": 27,
+				"scale": 7
+			},
+			{
+				"name": "IDATETIME",
+				"type": "datetime2",
+				"precision": 27,
+				"scale": 7
+			},
+			{
+				"name": "IDATETIME2",
+				"type": "datetime2",
+				"precision": 27,
+				"scale": 7
+			},
+			{
+				"name": "IDATETIMEOFFSET",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "IBINARY",
+				"type": "varbinary",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "IVARBINARY",
+				"type": "varbinary",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "IVARBINARYMAX",
+				"type": "varbinary",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "IIMAGE",
+				"type": "varbinary",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "ITIMESTAMP",
+				"type": "varbinary",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "IUNIQUEIDENTIFIER",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "IXML",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "Igeometry",
+				"type": "varbinary",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "Igeography",
+				"type": "varbinary",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "AdfCanaryTestSpark3",
+			"table": "ALL_DATA_TYPES_SINK_NEW"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

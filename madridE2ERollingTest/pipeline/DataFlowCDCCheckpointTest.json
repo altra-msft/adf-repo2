@@ -1,0 +1,108 @@
+{
+	"name": "DataFlowCDCCheckpointTest",
+	"properties": {
+		"activities": [
+			{
+				"name": "Checkpoint with pipeline parameter",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DataFlowCDCTest",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine",
+					"continuationSettings": {
+						"customizedCheckpointKey": {
+							"value": "@pipeline().parameters.CheckpointKey",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "Checkpoint with global parameter",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DataFlowCDCTest",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine",
+					"continuationSettings": {
+						"customizedCheckpointKey": {
+							"value": "@pipeline().globalParameters.CheckpointKey",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "Checkpoint",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DataFlowCDCTest",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine",
+					"continuationSettings": {
+						"customizedCheckpointKey": "78cffd6d-a7f1-49fb-a6b2-f0492141edd6"
+					}
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"parameters": {
+			"CheckpointKey": {
+				"type": "string",
+				"defaultValue": "78cffd6d-a7f1-49fb-a6b2-f0492141edd6"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-10-17T08:07:57Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

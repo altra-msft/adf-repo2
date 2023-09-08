@@ -1,0 +1,156 @@
+{
+	"name": "SourceDataset_0mc",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "TestSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "COMM",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 5
+			},
+			{
+				"name": "DEPTNO",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "EMPNO",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "ENAME",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "HIREDATE",
+				"type": "date",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "JOB",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "MGR",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "SAL",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 5
+			},
+			{
+				"name": "distinctNum",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "distinctChar",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "distinctAll",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "exceptNum",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "exceptChar",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "unionChar",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "intersectChar",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "unionNum",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "intersectNum",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "atNum",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "atChar",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "isNanNum",
+				"type": "bit",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "isNanDecimal",
+				"type": "bit",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "radiansNum",
+				"type": "float",
+				"precision": 53,
+				"scale": 0
+			},
+			{
+				"name": "radiansDecimal",
+				"type": "float",
+				"precision": 53,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "AdfCanaryTestSpark3",
+			"table": "arrayFunctions1"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

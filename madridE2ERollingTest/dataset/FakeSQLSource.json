@@ -1,0 +1,17 @@
+{
+	"name": "FakeSQLSource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FakeSQLConnection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "schema",
+			"table": "table"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

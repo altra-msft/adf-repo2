@@ -1,0 +1,55 @@
+{
+	"name": "dataflowDebugSettingsTest",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"parameters{",
+				"     schema as string,",
+				"     sourceTable as string",
+				"}",
+				"source(output(",
+				"          ID as long,",
+				"          ENTERDT as timestamp,",
+				"          NAME as string,",
+				"          FSID as string,",
+				"          DEPT as string,",
+				"          WORKLOCATIONS as string,",
+				"          ETLInsertTimestamp as timestamp,",
+				"          Submitted as string,",
+				"          SHIFT_DESCR as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: ($schema),",
+				"     tableName: ($sourceTable),",
+				"     isolationLevel: 'READ_UNCOMMITTED') ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     store: 'cache',",
+				"     format: 'inline',",
+				"     output: false,",
+				"     saveOrder: 1) ~> sink1"
+			]
+		}
+	}
+}

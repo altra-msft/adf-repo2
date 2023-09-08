@@ -1,0 +1,42 @@
+{
+	"name": "CacheSinkUITests",
+	"properties": {
+		"activities": [
+			{
+				"name": "testingDataFlow2",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "testingDataFlow2",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "None",
+					"cacheSinks": {
+						"firstRowOnly": true
+					}
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-05-25T09:00:52Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

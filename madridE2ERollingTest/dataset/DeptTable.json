@@ -1,0 +1,54 @@
+{
+	"name": "DeptTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CanarySqlLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "FSID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeptID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeptDesc",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupervisorID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupervisorName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ShiftDesc",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Submitted",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "s2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,46 @@
+{
+	"name": "KPADBTest",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-3276842988218987.7.azuredatabricks.net",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "KPByocToken"
+			},
+			"newClusterNodeType": "Standard_DS3_v2",
+			"newClusterNumOfWorker": "0",
+			"newClusterSparkConf": {
+				"spark.databricks.cluster.profile": "singleNode",
+				"master": "local[*]"
+			},
+			"newClusterSparkEnvVars": {
+				"temp1": "variable1",
+				"temp2": "variable2"
+			},
+			"newClusterCustomTags": {
+				"ResourceClass": "SingleNode"
+			},
+			"newClusterVersion": "10.0.x-scala2.12",
+			"newClusterLogDestination": "dbfs:/FileStore/logs",
+			"newClusterInitScripts": [],
+			"clusterOption": "Single node",
+			"dockerImage": {
+				"url": "adftest.azurecr.io/databricks:latest",
+				"basicAuth": {
+					"username": "adftest",
+					"password": {
+						"type": "SecureString",
+						"value": "**********"
+					}
+				}
+			}
+		}
+	}
+}

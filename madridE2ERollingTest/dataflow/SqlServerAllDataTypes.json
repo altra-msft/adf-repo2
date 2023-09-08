@@ -1,0 +1,73 @@
+{
+	"name": "SqlServerAllDataTypes",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CanarySqlAllDataTypes",
+						"type": "DatasetReference"
+					},
+					"name": "SqlServerAllDataTypes"
+				},
+				{
+					"dataset": {
+						"referenceName": "inputData",
+						"type": "DatasetReference"
+					},
+					"name": "CsvData"
+				},
+				{
+					"dataset": {
+						"referenceName": "jsonDS",
+						"type": "DatasetReference"
+					},
+					"name": "jsonSource"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "CdmTable",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "CdmTable",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				},
+				{
+					"dataset": {
+						"referenceName": "CdmInput",
+						"type": "DatasetReference"
+					},
+					"name": "sink3"
+				},
+				{
+					"dataset": {
+						"referenceName": "CdmInput",
+						"type": "DatasetReference"
+					},
+					"name": "sink4"
+				}
+			],
+			"transformations": [
+				{
+					"name": "ToStringAllTypes"
+				},
+				{
+					"name": "ToStringOfCSV"
+				},
+				{
+					"name": "ToStringOfJSON"
+				}
+			],
+			"script": "source(output(\n\t\tIINTEGER as integer,\n\t\tIBIT as boolean,\n\t\tITINYINT as integer,\n\t\tISMALLINT as integer,\n\t\tIBIGINT as long,\n\t\tISMALLMONEY as decimal(10,4),\n\t\tIMONEY as decimal(19,4),\n\t\tINUMERIC as decimal(18,0),\n\t\tINUMERIC38 as decimal(38,0),\n\t\tINUMERIC3838 as decimal(38,38),\n\t\tIDECIMAL as decimal(18,0),\n\t\tIDECIMAL38 as decimal(38,0),\n\t\tIDECIMAL3838 as decimal(38,38),\n\t\tIFLOAT as double,\n\t\tIREAL as float,\n\t\tICHAR as string,\n\t\tINCHAR as string,\n\t\tIVARCHAR as string,\n\t\tINVARCHAR as string,\n\t\tIVARCHARMAX as string,\n\t\tINVARCHARMAX as string,\n\t\tITEXT as string,\n\t\tINTEXT as string,\n\t\tIDATE as date,\n\t\tITIME as timestamp,\n\t\tISMALLDATETIME as timestamp,\n\t\tIDATETIME as timestamp,\n\t\tIDATETIME2 as timestamp,\n\t\tIDATETIMEOFFSET as string,\n\t\tIBINARY as binary,\n\t\tIVARBINARY as binary,\n\t\tIVARBINARYMAX as binary,\n\t\tIIMAGE as binary,\n\t\tITIMESTAMP as binary,\n\t\tIUNIQUEIDENTIFIER as string,\n\t\tIXML as string,\n\t\tIgeometry as binary,\n\t\tIgeography as binary\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> SqlServerAllDataTypes\nsource(output(\n\t\tmovie as string,\n\t\ttitle as string,\n\t\tgenres as string,\n\t\tyear as string,\n\t\tRating as string,\n\t\t{Rotton Tomato} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CsvData\nsource(output(\n\t\tid as string,\n\t\ttype as string,\n\t\tname as string,\n\t\tppu as double,\n\t\tbatters as (batter as (id as string, type as string, topping as (id as string, type as string)[])[]),\n\t\ttopping as (id as string, type as string)[]\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tdocumentForm: 'arrayOfDocuments') ~> jsonSource\nSqlServerAllDataTypes derive(each(match(true()), $$ = toString($$))) ~> ToStringAllTypes\nCsvData derive(each(match(true()), $$ = toString($$))) ~> ToStringOfCSV\njsonSource derive(each(match(true()), $$ = toString($$))) ~> ToStringOfJSON\nSqlServerAllDataTypes sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1\nToStringAllTypes sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink2\nToStringOfCSV sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tFiscalYear as string,\n\t\tCostCenterId as string,\n\t\tPostingDate as string,\n\t\tCostElementLevel2Id as string,\n\t\tCostElementLevel1Id as string,\n\t\tCostValue as string,\n\t\tCurrency as string,\n\t\tTransactionId as string,\n\t\tDocumentId as string,\n\t\tAccountId as string\n\t),\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink3\nToStringOfJSON sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tFiscalYear as string,\n\t\tCostCenterId as string,\n\t\tPostingDate as string,\n\t\tCostElementLevel2Id as string,\n\t\tCostElementLevel1Id as string,\n\t\tCostValue as string,\n\t\tCurrency as string,\n\t\tTransactionId as string,\n\t\tDocumentId as string,\n\t\tAccountId as string\n\t),\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink4"
+		}
+	}
+}

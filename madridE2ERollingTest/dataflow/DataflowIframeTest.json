@@ -1,0 +1,156 @@
+{
+	"name": "DataflowIframeTest",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CanarySqlAllDataTypes",
+						"type": "DatasetReference"
+					},
+					"name": "SqlServerAllDataTypes"
+				},
+				{
+					"dataset": {
+						"referenceName": "inputData",
+						"type": "DatasetReference"
+					},
+					"name": "CsvData"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "CdmTable",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "CdmTable",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				},
+				{
+					"dataset": {
+						"referenceName": "CdmInput",
+						"type": "DatasetReference"
+					},
+					"name": "sink3"
+				}
+			],
+			"transformations": [
+				{
+					"name": "ToStringAllTypes"
+				},
+				{
+					"name": "ToStringOfCSV"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          IINTEGER as integer,",
+				"          IBIT as boolean,",
+				"          ITINYINT as integer,",
+				"          ISMALLINT as integer,",
+				"          IBIGINT as long,",
+				"          ISMALLMONEY as decimal(10,4),",
+				"          IMONEY as decimal(19,4),",
+				"          INUMERIC as decimal(18,0),",
+				"          INUMERIC38 as decimal(38,0),",
+				"          INUMERIC3838 as decimal(38,38),",
+				"          IDECIMAL as decimal(18,0),",
+				"          IDECIMAL38 as decimal(38,0),",
+				"          IDECIMAL3838 as decimal(38,38),",
+				"          IFLOAT as double,",
+				"          IREAL as float,",
+				"          ICHAR as string,",
+				"          INCHAR as string,",
+				"          IVARCHAR as string,",
+				"          INVARCHAR as string,",
+				"          IVARCHARMAX as string,",
+				"          INVARCHARMAX as string,",
+				"          ITEXT as string,",
+				"          INTEXT as string,",
+				"          IDATE as date,",
+				"          ITIME as timestamp,",
+				"          ISMALLDATETIME as timestamp,",
+				"          IDATETIME as timestamp,",
+				"          IDATETIME2 as timestamp,",
+				"          IDATETIMEOFFSET as string,",
+				"          IBINARY as binary,",
+				"          IVARBINARY as binary,",
+				"          IVARBINARYMAX as binary,",
+				"          IIMAGE as binary,",
+				"          ITIMESTAMP as binary,",
+				"          IUNIQUEIDENTIFIER as string,",
+				"          IXML as string,",
+				"          Igeometry as binary,",
+				"          Igeography as binary",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> SqlServerAllDataTypes",
+				"source(output(",
+				"          movie as string,",
+				"          title as string,",
+				"          genres as string,",
+				"          year as string,",
+				"          Rating as string,",
+				"          {Rotton Tomato} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> CsvData",
+				"SqlServerAllDataTypes derive(each(match(true()), $$ = toString($$))) ~> ToStringAllTypes",
+				"CsvData derive(each(match(true()), $$ = toString($$))) ~> ToStringOfCSV",
+				"SqlServerAllDataTypes sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
+				"ToStringAllTypes sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink2",
+				"ToStringOfCSV sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          FiscalYear as string,",
+				"          CostCenterId as string,",
+				"          PostingDate as string,",
+				"          CostElementLevel2Id as string,",
+				"          CostElementLevel1Id as string,",
+				"          CostValue as string,",
+				"          Currency as string,",
+				"          TransactionId as string,",
+				"          DocumentId as string,",
+				"          AccountId as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink3"
+			]
+		}
+	}
+}

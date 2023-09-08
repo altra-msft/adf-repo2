@@ -1,0 +1,32 @@
+{
+	"name": "inspect-test",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DeptTable",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DeptTable",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DerivedColumn1"
+				}
+			],
+			"script": "source(output(\n\t\tFSID as string,\n\t\tName as string,\n\t\tDeptID as string,\n\t\tDeptDesc as string,\n\t\tLocation as string,\n\t\tSupervisorID as string,\n\t\tSupervisorName as string,\n\t\tShiftDesc as string,\n\t\tSubmitted as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source1\nsource1 derive(each(patternMatch(`(.*)ID` ), $1+'No' = 'Id_'+toString($$))) ~> DerivedColumn1\nDerivedColumn1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tFSID as string,\n\t\tName as string,\n\t\tDeptID as string,\n\t\tDeptDesc as string,\n\t\tLocation as string,\n\t\tSupervisorID as string,\n\t\tSupervisorName as string,\n\t\tShiftDesc as string,\n\t\tSubmitted as string\n\t),\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
+		}
+	}
+}

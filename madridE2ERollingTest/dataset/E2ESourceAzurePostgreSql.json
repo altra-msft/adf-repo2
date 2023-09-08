@@ -1,0 +1,17 @@
+{
+	"name": "E2ESourceAzurePostgreSql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "information_schema",
+			"table": "_pg_foreign_data_wrappers"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

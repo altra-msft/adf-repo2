@@ -1,0 +1,32 @@
+{
+	"name": "derivedWithRegex",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CanarySqlAllDataTypes",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "outputData",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DerivedColumn1"
+				}
+			],
+			"script": "source(output(\n\t\tIINTEGER as integer,\n\t\tIBIT as boolean,\n\t\tITINYINT as integer,\n\t\tISMALLINT as integer,\n\t\tIBIGINT as long,\n\t\tISMALLMONEY as decimal(10,4),\n\t\tIMONEY as decimal(19,4),\n\t\tINUMERIC as decimal(18,0),\n\t\tINUMERIC38 as decimal(38,0),\n\t\tINUMERIC3838 as decimal(38,38),\n\t\tIDECIMAL as decimal(18,0),\n\t\tIDECIMAL38 as decimal(38,0),\n\t\tIDECIMAL3838 as decimal(38,38),\n\t\tIFLOAT as double,\n\t\tIREAL as float,\n\t\tICHAR as string,\n\t\tINCHAR as string,\n\t\tIVARCHAR as string,\n\t\tINVARCHAR as string,\n\t\tIVARCHARMAX as string,\n\t\tINVARCHARMAX as string,\n\t\tITEXT as string,\n\t\tINTEXT as string,\n\t\tIDATE as date,\n\t\tITIME as timestamp,\n\t\tISMALLDATETIME as timestamp,\n\t\tIDATETIME as timestamp,\n\t\tIDATETIME2 as timestamp,\n\t\tIDATETIMEOFFSET as string,\n\t\tIBINARY as binary,\n\t\tIVARBINARY as binary,\n\t\tIVARBINARYMAX as binary,\n\t\tIIMAGE as binary,\n\t\tITIMESTAMP as binary,\n\t\tIUNIQUEIDENTIFIER as string,\n\t\tIXML as string,\n\t\tIgeometry as binary,\n\t\tIgeography as binary\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source1\nsource1 derive(each(patternMatch(`(.*)CHARMAX` ), 'newColumn_'+$$ = toString($$)+'_test')) ~> DerivedColumn1\nDerivedColumn1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['derivedWithRegex.csv'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('hash', 1)) ~> sink1"
+		}
+	}
+}

@@ -1,0 +1,72 @@
+{
+	"name": "pipelineInsertActivityTest",
+	"properties": {
+		"activities": [
+			{
+				"name": "Notebook1",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/MadridE2ETest"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksE2E",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Notebook1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[golden].[VALIDATE]",
+					"storedProcedureParameters": {
+						"tableName": {
+							"value": "TestTable",
+							"type": "String"
+						},
+						"testType": {
+							"value": "dbo",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "CanarySql",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-11-30T14:14:40Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

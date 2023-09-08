@@ -1,0 +1,122 @@
+{
+	"name": "CopyPipeline_fg6",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_fg6",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "AdfCanaryTestSpark3.approxDistinctCnt"
+					},
+					{
+						"name": "Destination",
+						"value": "AdfCanaryTestSpark3.approxDistinctCnt"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"writeBehavior": "Insert",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureBlobGen2",
+							"type": "LinkedServiceReference"
+						},
+						"path": "qwerty"
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "DEPTNO",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "DEPTNO",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "AvgSalary",
+									"type": "Decimal",
+									"physicalType": "decimal"
+								},
+								"sink": {
+									"name": "AvgSalary",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "approxDistinct",
+									"type": "Int64",
+									"physicalType": "bigint"
+								},
+								"sink": {
+									"name": "approxDistinct",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "approxDistinct2",
+									"type": "Int64",
+									"physicalType": "bigint"
+								},
+								"sink": {
+									"name": "approxDistinct2",
+									"type": "Int64"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_fg6",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_fg6",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-08T07:16:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,30 @@
+{
+	"name": "PQSQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Column_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Column_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Column_3",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "test_ui_monitoring"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

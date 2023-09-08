@@ -1,0 +1,334 @@
+{
+	"name": "AdfCDCSqlToParquetTest",
+	"properties": {
+		"SourceConnectionsInfo": [
+			{
+				"SourceEntities": [
+					{
+						"name": "dbo.Employee",
+						"properties": {
+							"schema": [
+								{
+									"name": "EMPNO",
+									"dataType": "integer"
+								},
+								{
+									"name": "ENAME",
+									"dataType": "string"
+								},
+								{
+									"name": "JOB",
+									"dataType": "string"
+								},
+								{
+									"name": "MGR",
+									"dataType": "integer"
+								},
+								{
+									"name": "HIREDATE",
+									"dataType": "date"
+								},
+								{
+									"name": "SAL",
+									"dataType": "decimal(7,2)"
+								},
+								{
+									"name": "COMM",
+									"dataType": "decimal(7,2)"
+								},
+								{
+									"name": "DEPTNO",
+									"dataType": "integer"
+								},
+								{
+									"name": "Timestamp",
+									"dataType": "timestamp"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "table"
+								},
+								{
+									"name": "store",
+									"value": "sqlserver"
+								},
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "Employee"
+								},
+								{
+									"name": "databaseType",
+									"value": "databaseType"
+								},
+								{
+									"name": "database",
+									"value": "database"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "skipInitialLoad",
+									"value": true
+								},
+								{
+									"name": "waterMarkColumn",
+									"value": "Timestamp"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureSqlDatabase",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureSqlDatabase",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				}
+			}
+		],
+		"TargetConnectionsInfo": [
+			{
+				"TargetEntities": [
+					{
+						"name": "aad-details/Output1/Employee",
+						"properties": {
+							"schema": [
+								{
+									"name": "EMPNO",
+									"dataType": "integer"
+								},
+								{
+									"name": "ENAME",
+									"dataType": "string"
+								},
+								{
+									"name": "JOB",
+									"dataType": "string"
+								},
+								{
+									"name": "MGR",
+									"dataType": "integer"
+								},
+								{
+									"name": "HIREDATE",
+									"dataType": "date"
+								},
+								{
+									"name": "SAL",
+									"dataType": "decimal(7,2)"
+								},
+								{
+									"name": "COMM",
+									"dataType": "decimal(7,2)"
+								},
+								{
+									"name": "DEPTNO",
+									"dataType": "integer"
+								},
+								{
+									"name": "Timestamp",
+									"dataType": "timestamp"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "parquet"
+								},
+								{
+									"name": "container",
+									"value": "aad-details"
+								},
+								{
+									"name": "fileSystem",
+									"value": "aad-details"
+								},
+								{
+									"name": "folderPath",
+									"value": "Output1/Employee"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "AzureBlobGen2",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureBlobFS",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				},
+				"DataMapperMappings": [
+					{
+						"targetEntityName": "aad-details/Output1/Employee",
+						"sourceEntityName": "dbo.Employee",
+						"sourceConnectionReference": {
+							"connectionName": "AzureSqlDatabase",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "COMM",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "COMM",
+										"entity": "dbo.Employee",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "DEPTNO",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "DEPTNO",
+										"entity": "dbo.Employee",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "EMPNO",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "EMPNO",
+										"entity": "dbo.Employee",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "ENAME",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "ENAME",
+										"entity": "dbo.Employee",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "HIREDATE",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "HIREDATE",
+										"entity": "dbo.Employee",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "JOB",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "JOB",
+										"entity": "dbo.Employee",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "MGR",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "MGR",
+										"entity": "dbo.Employee",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "SAL",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "SAL",
+										"entity": "dbo.Employee",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Timestamp",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Timestamp",
+										"entity": "dbo.Employee",
+										"entityConnectionReference": {
+											"connectionName": "AzureSqlDatabase",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					}
+				],
+				"Relationships": []
+			}
+		],
+		"Policy": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 24
+			},
+			"mode": "Microbatch"
+		},
+		"status": "Stopped",
+		"id": "ad55ebe3c1fe48f19c1378db897f07f1"
+	}
+}

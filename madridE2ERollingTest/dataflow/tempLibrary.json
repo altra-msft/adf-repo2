@@ -1,0 +1,16 @@
+{
+	"name": "tempLibrary",
+	"properties": {
+		"type": "UDFLibrary",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"tempFuncti() as boolean = true(),",
+				"tempFunction2() as boolean = true(),",
+				"arrayTest(string[]) as string = '6'"
+			]
+		}
+	}
+}

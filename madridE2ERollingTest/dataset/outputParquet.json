@@ -1,0 +1,21 @@
+{
+	"name": "outputParquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfcanarystorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "source",
+				"container": "movefiles"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

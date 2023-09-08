@@ -1,0 +1,35 @@
+{
+	"name": "HiveLS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "Hive",
+		"typeProperties": {
+			"host": "adfdataflowhdihive.azurehdinsight.net",
+			"port": 443,
+			"serverType": "HiveServer2",
+			"thriftTransportProtocol": "HTTP",
+			"authenticationType": "WindowsAzureHDInsightService",
+			"serviceDiscoveryMode": false,
+			"useNativeQuery": false,
+			"username": "admin",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "adfdataflowhdihivepwd"
+			},
+			"enableSsl": false,
+			"storageReference": {
+				"referenceName": "AzureBlobGen2",
+				"type": "LinkedServiceReference"
+			}
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

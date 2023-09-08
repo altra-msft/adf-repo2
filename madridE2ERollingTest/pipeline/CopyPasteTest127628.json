@@ -1,0 +1,222 @@
+{
+	"name": "CopyPasteTest127628",
+	"properties": {
+		"activities": [
+			{
+				"name": "testPQAssertsFailure",
+				"type": "ExecuteWranglingDataflow",
+				"dependsOn": [
+					{
+						"activity": "Wait1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.01:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "powerqueryNameTest",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"queries": [
+						{
+							"queryName": "UserQuery",
+							"dataflowSinks": [
+								{
+									"name": "SinkmoviesSink",
+									"dataset": {
+										"referenceName": "outputData",
+										"type": "DatasetReference"
+									},
+									"script": "sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpreCommands: [],\n\tpostCommands: []) ~> SinkmoviesSink"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "testPQAssertsFailure",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@and(equals(string(activity('testPQAssertsFailure').status),'Failed'),\ncontains(string(activity('testPQAssertsFailure').error.message),'Job failed due to reason: DF-ABORTED'))",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "otherThanFailureCase",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.02:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": "https://management.aws.com/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/123/providers/Microsoft.Sql/servers/adfdataflowcanarydwserver/databases/DataflowCanaryDW2/resume?api-version=2014-04-01-preview",
+								"method": "POST",
+								"body": " ",
+								"authentication": {
+									"type": "MSI",
+									"resource": "https://management.azure.com/"
+								}
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "expectedPipelineToBeFailed",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.02:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": "https://www.google.com/",
+								"connectVia": {
+									"referenceName": "AutoResolveIntegrationRuntime",
+									"type": "IntegrationRuntimeReference"
+								},
+								"method": "GET"
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "FailActivity",
+				"description": "Error code is dynamic content that cannot be interpreted as a string",
+				"type": "Fail",
+				"dependsOn": [
+					{
+						"activity": "testPQAssertsFailure",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"message": "sample error message: noSuchMethodError",
+					"errorCode": {
+						"value": "@activity('testPQAssertsFailure').output.runStatus",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "If Condition2",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "FailActivity",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@and(contains(activity('FailActivity').output.message, 'sample error message: noSuchMethodError'),equals(activity('FailActivity').output.errorCode, 'ErrorCodeNotString'))",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "FailCondition",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.02:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": "https://management.aws.com/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/123/providers/Microsoft.Sql/servers/adfdataflowcanarydwserver/databases/DataflowCanaryDW2/resume?api-version=2014-04-01-preview",
+								"connectVia": {
+									"referenceName": "AutoResolveIntegrationRuntime",
+									"type": "IntegrationRuntimeReference"
+								},
+								"method": "POST",
+								"body": " "
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "PassCondition",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.02:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": "https://google.com",
+								"connectVia": {
+									"referenceName": "AutoResolveIntegrationRuntime",
+									"type": "IntegrationRuntimeReference"
+								},
+								"method": "GET"
+							}
+						}
+					]
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-08T18:07:32Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

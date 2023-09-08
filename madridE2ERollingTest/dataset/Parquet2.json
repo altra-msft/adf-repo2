@@ -1,0 +1,63 @@
+{
+	"name": "Parquet2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobGen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "part-00000-tid-2271472518836920925-d33a74ab-5cdc-4a70-8ae0-662faaf401f7-0-1-c000.snappy.parquet",
+				"folderPath": "Output1/Employee",
+				"fileSystem": "04-11-2022"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "EMPNO",
+				"type": "INT32"
+			},
+			{
+				"name": "ENAME",
+				"type": "UTF8"
+			},
+			{
+				"name": "JOB",
+				"type": "UTF8"
+			},
+			{
+				"name": "MGR",
+				"type": "INT32"
+			},
+			{
+				"name": "HIREDATE",
+				"type": "DATE"
+			},
+			{
+				"name": "SAL",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "COMM",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "DEPTNO",
+				"type": "INT32"
+			},
+			{
+				"name": "Timestamp",
+				"type": "INT96"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

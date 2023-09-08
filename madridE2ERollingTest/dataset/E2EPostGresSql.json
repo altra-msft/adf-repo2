@@ -1,0 +1,12 @@
+{
+	"name": "E2EPostGresSql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable"
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

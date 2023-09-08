@@ -1,0 +1,16 @@
+{
+	"name": "FakeDynamicsCrmDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FakeDynamicsCrmLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DynamicsCrmEntity",
+		"schema": [],
+		"typeProperties": {
+			"entityName": "test"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

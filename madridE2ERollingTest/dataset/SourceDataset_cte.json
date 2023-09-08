@@ -1,0 +1,25 @@
+{
+	"name": "SourceDataset_cte",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "TestSql",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_table": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "AdfCanaryTestSpark3",
+			"table": {
+				"value": "@dataset().cw_table",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

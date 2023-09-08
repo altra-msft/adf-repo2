@@ -1,0 +1,15 @@
+{
+	"name": "UDF",
+	"properties": {
+		"description": "testing UDF functions",
+		"type": "UDFLibrary",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"function1(string, string, string) as string = concat(i1,i2,i3)"
+			]
+		}
+	}
+}

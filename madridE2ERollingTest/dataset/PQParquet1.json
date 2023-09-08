@@ -1,0 +1,51 @@
+{
+	"name": "PQParquet1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfcanarystorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "sampledata.parquet",
+				"folderPath": "source",
+				"container": "movefiles"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "CustomerNo",
+				"type": "UTF8"
+			},
+			{
+				"name": "Item",
+				"type": "UTF8"
+			},
+			{
+				"name": "Material",
+				"type": "UTF8"
+			},
+			{
+				"name": "PurchaseDate",
+				"type": "UTF8"
+			},
+			{
+				"name": "Description",
+				"type": "UTF8"
+			},
+			{
+				"name": "QtyShip",
+				"type": "UTF8"
+			},
+			{
+				"name": "Cost",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

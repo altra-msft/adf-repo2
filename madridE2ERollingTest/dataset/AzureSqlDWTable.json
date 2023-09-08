@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlDWTable",
+	"properties": {
+		"description": "do not delete it",
+		"linkedServiceName": {
+			"referenceName": "SQLDW",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "[dbo].[DimProduct]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

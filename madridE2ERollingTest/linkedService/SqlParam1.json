@@ -1,0 +1,24 @@
+{
+	"name": "SqlParam1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"userName": {
+				"type": "string",
+				"defaultValue": "rgsefs"
+			},
+			"Password": {
+				"type": "securestring"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=adfcaanarytestrepo.database.windows.net;Initial Catalog=testrepocanary;User ID=@{linkedService().userName};Password=@{linkedService().Password}"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

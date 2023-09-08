@@ -1,0 +1,12 @@
+{
+	"name": "MadridE2E",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/eecfb6ee-86f1-45e1-bb7e-1f5b6bdf3951/resourcegroups/ADMS_UX_TEST/providers/Microsoft.DataFactory/factories/madridE2E/integrationruntimes/MadridE2E",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}

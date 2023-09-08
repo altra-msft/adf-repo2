@@ -1,0 +1,59 @@
+{
+	"name": "activityWithParameters",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"parameters": {
+			"temp1": {
+				"type": "string",
+				"defaultValue": "testingFailActivity"
+			},
+			"temp2": {
+				"type": "int",
+				"defaultValue": 22
+			},
+			"temp3": {
+				"type": "float",
+				"defaultValue": 12.5
+			},
+			"temp4": {
+				"type": "bool",
+				"defaultValue": false
+			},
+			"temp5": {
+				"type": "array",
+				"defaultValue": [
+					1,
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"temp6": {
+				"type": "object",
+				"defaultValue": {
+					"name": "madrid",
+					"project": "ADF"
+				}
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-09-14T09:49:50Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,22 @@
+{
+	"name": "AzureParseJson",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CanarySql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "JSONText",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "SOURCE",
+			"table": "jsonTest"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,16 @@
+{
+	"name": "FakeSalesforceDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FakeSalesforceLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SalesforceObject",
+		"schema": [],
+		"typeProperties": {
+			"objectApiName": "test"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

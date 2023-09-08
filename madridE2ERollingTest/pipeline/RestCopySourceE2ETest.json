@@ -1,0 +1,78 @@
+{
+	"name": "RestCopySourceE2ETest",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": {
+							"value": "@pipeline().parameters.requestMethod",
+							"type": "Expression"
+						},
+						"requestBody": {
+							"value": "@pipeline().parameters.requestBody",
+							"type": "Expression"
+						},
+						"additionalHeaders": {
+							"test": "a"
+						},
+						"paginationRules": {
+							"test": {
+								"value": "@pipeline().DataFactory",
+								"type": "Expression"
+							}
+						}
+					},
+					"sink": {
+						"type": "SalesforceSink",
+						"writeBatchSize": 5000,
+						"writeBehavior": "insert"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "RestResourceTestSource",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "FakeSalesforceDataset",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"parameters": {
+			"requestMethod": {
+				"type": "string"
+			},
+			"requestBody": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-02-17T02:54:21Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

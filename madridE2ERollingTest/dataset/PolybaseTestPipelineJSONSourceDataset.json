@@ -1,0 +1,21 @@
+{
+	"name": "PolybaseTestPipelineJSONSourceDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "ux-test-input-do-not-overwrite.csv",
+				"folderPath": "e2e-input",
+				"container": "0-do-not-use-this"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

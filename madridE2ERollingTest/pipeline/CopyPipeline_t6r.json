@@ -1,0 +1,187 @@
+{
+	"name": "CopyPipeline_t6r",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach_t6r",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.cw_items",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy_t6r",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Source",
+									"value": "dbo.@{item().source.table}"
+								},
+								{
+									"name": "Destination",
+									"value": "dbo.@{item().destination.table}"
+								}
+							],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "SqlDWSink",
+									"allowCopyCommand": true
+								},
+								"enableStaging": true,
+								"stagingSettings": {
+									"linkedServiceName": {
+										"referenceName": "AzureBlobGen2",
+										"type": "LinkedServiceReference"
+									}
+								},
+								"translator": {
+									"value": "@item().copyActivity.translator",
+									"type": "Expression"
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset_t6r",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_table": "@item().source.table"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataset_t6r",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_table": "@item().destination.table"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"parameters": {
+			"cw_items": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"source": {
+							"table": "MadridE2ETestSource"
+						},
+						"destination": {
+							"table": "MadridE2ETestSource"
+						},
+						"copyActivity": {
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Column_0",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Column_0",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Column_1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Column_1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Column_2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Column_2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Column_3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Column_3",
+											"type": "String"
+										}
+									}
+								]
+							}
+						}
+					},
+					{
+						"source": {
+							"table": "Person"
+						},
+						"destination": {
+							"table": "Person"
+						},
+						"copyActivity": {
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PersonID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "PersonID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "Name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Name",
+											"type": "String"
+										}
+									}
+								]
+							}
+						}
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-08T05:41:04Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,24 @@
+{
+	"name": "ChildTest",
+	"properties": {
+		"activities": [
+			{
+				"name": "Child",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 60
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-12-20T13:45:16Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

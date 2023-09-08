@@ -1,0 +1,16 @@
+{
+	"name": "SqlServer",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=madride2etest.database.windows.net;initial catalog=diatest;user id=diatest",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyYjc0NmExMC0yNTQ4LTQwYTYtOTRiNS0zYmFmMmI0ODMyZGYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "MadridE2E",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

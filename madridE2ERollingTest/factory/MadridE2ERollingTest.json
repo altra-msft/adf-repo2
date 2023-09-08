@@ -1,0 +1,30 @@
+{
+	"name": "MadridE2ERollingTest",
+	"properties": {
+		"globalParameters": {
+			"CheckpointKey": {
+				"type": "string",
+				"value": "78cffd6d-a7f1-49fb-a6b2-f0492141edd6"
+			}
+		},
+		"globalConfigurations": {
+			"mountedConfiguration": []
+		}
+	},
+	"location": "EastUS",
+	"identity": {
+		"type": "SystemAssigned,UserAssigned",
+		"principalId": "ee8386ff-c0cf-40a3-8595-eb41f2160ec0",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+		"userAssignedIdentities": {
+			"/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/MadridE2ETest/providers/Microsoft.ManagedIdentity/userAssignedIdentities/madrid-uami-test": {
+				"clientId": "04fc17f4-7755-4133-ac37-c01e708f69a7",
+				"principalId": "31a6cf14-97c3-495f-b851-35e2c890ed9e"
+			},
+			"/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/vimalviy-umai-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/vimalviy-uami-test": {
+				"clientId": "359bf97a-b70c-4ec2-ac85-8859ba1e8228",
+				"principalId": "e40eaedd-19e7-487e-b528-617a0c23514d"
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "SqlSinkTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "test",
+			"table": "cdmTable"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

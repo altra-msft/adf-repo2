@@ -1,0 +1,342 @@
+{
+	"name": "CopyPipeline_o0a",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_o0a",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "AdfCanaryTestSpark3.AvaloqBPClassifList"
+					},
+					{
+						"name": "Destination",
+						"value": "AdfCanaryTestSpark3.AvaloqBPClassifList"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"writeBehavior": "Insert",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureBlobGen2",
+							"type": "LinkedServiceReference"
+						},
+						"path": "qwerty"
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "obj_classif_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "obj_classif_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "class_factor",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "class_factor",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "class_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "class_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "clt_sgmt_calc_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "clt_sgmt_calc_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "end_date",
+									"type": "DateTime",
+									"physicalType": "date"
+								},
+								"sink": {
+									"name": "end_date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "hist_status_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "hist_status_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "indiv_feep_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "indiv_feep_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "is_inht",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "is_inht",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "remark",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "remark",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "sec_user_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "sec_user_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_costp_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_costp_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_curry_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_curry_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_max_val",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_max_val",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_min_val",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_min_val",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_minmax_val_type_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_minmax_val_type_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_offset_val",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_offset_val",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_offset_val_type_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_offset_val_type_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_reason_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_reason_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_val",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_val",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "spcd_val_type_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "spcd_val_type_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "start_date",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "start_date",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "timestamp",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								},
+								"sink": {
+									"name": "timestamp",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "user_ref_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "user_ref_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "id",
+									"type": "Int32"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_o0a",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_o0a",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-08T07:37:57Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

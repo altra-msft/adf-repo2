@@ -1,0 +1,39 @@
+{
+	"name": "AzureFileStorageBasicAuthJSON",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"test_host": {
+				"type": "string"
+			},
+			"test_user_name": {
+				"type": "string"
+			},
+			"test_secret": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureFileStorage",
+		"typeProperties": {
+			"host": "@{linkedService().test_host}",
+			"userId": "@{linkedService().test_user_name}",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": {
+					"value": "@linkedService().test_secret",
+					"type": "Expression"
+				}
+			}
+		},
+		"connectVia": {
+			"referenceName": "MadridE2E",
+			"type": "IntegrationRuntimeReference"
+		},
+		"description": "test"
+	}
+}

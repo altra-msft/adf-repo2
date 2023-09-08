@@ -1,0 +1,115 @@
+{
+	"name": "ExternalCallTest",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobGen2",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "externalCall1",
+					"linkedService": {
+						"referenceName": "RestWithUAMI",
+						"type": "LinkedServiceReference"
+					}
+				},
+				{
+					"name": "RelativeUrl"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "select2"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          SubId as string,",
+				"          ResourceGroup as string,",
+				"          FactoryName as string,",
+				"          IRName as string",
+				"     ),",
+				"     useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'externalcall',",
+				"     fileName: 'IRDetails.csv',",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true) ~> source1",
+				"RelativeUrl call(mapColumn(",
+				"          relativeUrlForIR",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     output(",
+				"          resHeaders as [string,string],",
+				"          IRDetails as (properties as (state as string, type as string)),",
+				"          Status as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     format: 'rest',",
+				"     store: 'restservice',",
+				"     timeout: 30,",
+				"     requestInterval: 0,",
+				"     queryParameters = [api-version -> 2018-06-01],",
+				"     httpMethod: 'POST',",
+				"     rowRelativeUrl: 'relativeUrlForIR',",
+				"     headerColumnName: 'resHeaders',",
+				"     bodyColumnName: 'IRDetails',",
+				"     statusColumnName: 'Status',",
+				"     addResponseCode: true,",
+				"     requestFormat: ['type' -> 'json'],",
+				"     responseFormat: ['type' -> 'json', 'documentForm' -> 'singleDocument']) ~> externalCall1",
+				"source1 derive(relativeUrlForIR = \"/subscriptions/{SubId}/resourcegroups/{ResourceGroup}/providers/Microsoft.DataFactory/factories/{FactoryName}/integrationruntimes/{IRName}/getStatus\") ~> RelativeUrl",
+				"externalCall1 derive(IRState = IRDetails.properties.state,",
+				"          IRType = IRDetails.properties.type) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          SubId,",
+				"          ResourceGroup,",
+				"          FactoryName,",
+				"          IRName,",
+				"          relativeUrlForIR,",
+				"          status = Status,",
+				"          IRState,",
+				"          IRType",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"select2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: ('test'),",
+				"     tableName: ('ExternalTable'),",
+				"     insertable: true,",
+				"     updateable: false,",
+				"     deletable: false,",
+				"     upsertable: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}

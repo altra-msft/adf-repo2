@@ -1,0 +1,16 @@
+{
+	"name": "E2ESourceAzureSqlDW",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLDW",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "[dbo].[e2eColumnMappingSink]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

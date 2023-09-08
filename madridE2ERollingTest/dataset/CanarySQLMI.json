@@ -1,0 +1,13 @@
+{
+	"name": "CanarySQLMI",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlMI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlMITable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

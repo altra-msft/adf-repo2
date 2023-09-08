@@ -1,0 +1,14 @@
+{
+	"name": "renameLibrary",
+	"properties": {
+		"type": "UDFLibrary",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"addUDF(string) as string = i1+'_udf'"
+			]
+		}
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"name": "pipeline_parameter_datatypes",
+	"properties": {
+		"folder": {
+			"name": "parameter_datatypes"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DerivedColumn"
+				}
+			],
+			"script": "parameters{\n\tparam_string as string ('string'),\n\tparam_integer as integer (12345),\n\tparam_boolean as boolean (toBoolean(\"true\")),\n\tparam_float as float (toFloat(12345)),\n\tparam_array as integer[] ([1,2,3,4,5]),\n\tparam_obj as string ('testobj'),\n\tparam_secstring as string ('testsecstring'),\n\tsinkSchema as string,\n\tsinkTable as string\n}\nsource(output(\n\t\tIINTEGER as integer,\n\t\tIBIT as boolean,\n\t\tITINYINT as integer,\n\t\tISMALLINT as short,\n\t\tIBIGINT as long,\n\t\tISMALLMONEY as decimal(10,4),\n\t\tIMONEY as decimal(19,4),\n\t\tINUMERIC as decimal(18,0),\n\t\tIDECIMAL as decimal(18,0),\n\t\tIFLOAT as double,\n\t\tIREAL as float,\n\t\tICHAR as string,\n\t\tIVARCHAR as string,\n\t\tITEXT as string,\n\t\tIDATE as date,\n\t\tITIME as timestamp,\n\t\tISMALLDATETIME as timestamp,\n\t\tIDATETIME as timestamp,\n\t\tIDATETIME2 as timestamp,\n\t\tIDATETIMEOFFSET as string,\n\t\tIVARCHARDATE as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'table',\n\tstore: 'sqlserver',\n\tschemaName: 'SOURCE',\n\ttableName: 'PARAMETER_TEST',\n\tisolationLevel: 'READ_UNCOMMITTED') ~> source\nsource derive(pstring = $param_string,\n\t\tpint = $param_integer,\n\t\tpbool = $param_boolean,\n\t\tpfloat = $param_float,\n\t\tparray = toString($param_array),\n\t\tpobj = $param_obj,\n\t\tpsecstring = $param_secstring) ~> DerivedColumn\nDerivedColumn sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'table',\n\tstore: 'sqlserver',\n\tschemaName: ($sinkSchema),\n\ttableName: ($sinkTable),\n\tinsertable: true,\n\tupdateable: false,\n\tdeletable: false,\n\tupsertable: false,\n\trecreate: true,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink"
+		}
+	}
+}

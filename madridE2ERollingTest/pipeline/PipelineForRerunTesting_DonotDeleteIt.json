@@ -1,0 +1,25 @@
+{
+	"name": "PipelineForRerunTesting_DonotDeleteIt",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait1",
+				"description": "test2",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2020-09-03T07:18:25Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

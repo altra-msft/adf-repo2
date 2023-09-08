@@ -1,0 +1,324 @@
+{
+	"name": "adfcdcSqlToSqlIncrementalTest4",
+	"properties": {
+		"SourceConnectionsInfo": [
+			{
+				"SourceEntities": [
+					{
+						"name": "dbo.CDCGenerateDataSqlTable1",
+						"properties": {
+							"schema": [
+								{
+									"name": "CustomerId",
+									"dataType": "integer"
+								},
+								{
+									"name": "CustomerName",
+									"dataType": "string"
+								},
+								{
+									"name": "Location",
+									"dataType": "string"
+								},
+								{
+									"name": "Qualification",
+									"dataType": "string"
+								},
+								{
+									"name": "Occupation",
+									"dataType": "string"
+								},
+								{
+									"name": "DOB",
+									"dataType": "date"
+								},
+								{
+									"name": "LastUpdated",
+									"dataType": "timestamp"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "table"
+								},
+								{
+									"name": "store",
+									"value": "sqlserver"
+								},
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "CDCGenerateDataSqlTable1"
+								},
+								{
+									"name": "databaseType",
+									"value": "databaseType"
+								},
+								{
+									"name": "database",
+									"value": "database"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "skipInitialLoad",
+									"value": false
+								},
+								{
+									"name": "waterMarkColumn",
+									"value": "DOB"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureSqlDatabase",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				}
+			}
+		],
+		"TargetConnectionsInfo": [
+			{
+				"TargetEntities": [
+					{
+						"name": "dbo.CDCGenerateDataSqlSinkTable4",
+						"properties": {
+							"schema": [
+								{
+									"name": "CustomerId",
+									"dataType": "integer"
+								},
+								{
+									"name": "CustomerName",
+									"dataType": "string"
+								},
+								{
+									"name": "Location",
+									"dataType": "string"
+								},
+								{
+									"name": "Qualification",
+									"dataType": "string"
+								},
+								{
+									"name": "Occupation",
+									"dataType": "string"
+								},
+								{
+									"name": "DOB",
+									"dataType": "date"
+								},
+								{
+									"name": "LastUpdated",
+									"dataType": "timestamp"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "format",
+									"value": "table"
+								},
+								{
+									"name": "store",
+									"value": "sqlserver"
+								},
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "CDCGenerateDataSqlSinkTable4"
+								},
+								{
+									"name": "databaseType",
+									"value": "databaseType"
+								},
+								{
+									"name": "database",
+									"value": "database"
+								},
+								{
+									"name": "insertable",
+									"value": true
+								},
+								{
+									"name": "updateable",
+									"value": false
+								},
+								{
+									"name": "deletable",
+									"value": false
+								},
+								{
+									"name": "upsertable",
+									"value": false
+								},
+								{
+									"name": "skipDuplicateMapInputs",
+									"value": true
+								},
+								{
+									"name": "skipDuplicateMapOutputs",
+									"value": true
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureSqlDatabase",
+					"type": "linkedservicetype",
+					"isInlineDataset": true
+				},
+				"DataMapperMappings": [
+					{
+						"targetEntityName": "dbo.CDCGenerateDataSqlSinkTable4",
+						"sourceEntityName": "dbo.CDCGenerateDataSqlTable1",
+						"sourceConnectionReference": {
+							"connectionName": "CanarySql",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "CustomerId",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "CustomerId",
+										"entity": "dbo.CDCGenerateDataSqlTable1",
+										"entityConnectionReference": {
+											"connectionName": "CanarySql",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "CustomerName",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "CustomerName",
+										"entity": "dbo.CDCGenerateDataSqlTable1",
+										"entityConnectionReference": {
+											"connectionName": "CanarySql",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Location",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Location",
+										"entity": "dbo.CDCGenerateDataSqlTable1",
+										"entityConnectionReference": {
+											"connectionName": "CanarySql",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Qualification",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Qualification",
+										"entity": "dbo.CDCGenerateDataSqlTable1",
+										"entityConnectionReference": {
+											"connectionName": "CanarySql",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Occupation",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Occupation",
+										"entity": "dbo.CDCGenerateDataSqlTable1",
+										"entityConnectionReference": {
+											"connectionName": "CanarySql",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "DOB",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "DOB",
+										"entity": "dbo.CDCGenerateDataSqlTable1",
+										"entityConnectionReference": {
+											"connectionName": "CanarySql",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "LastUpdated",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "LastUpdated",
+										"entity": "dbo.CDCGenerateDataSqlTable1",
+										"entityConnectionReference": {
+											"connectionName": "CanarySql",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					}
+				],
+				"Relationships": []
+			}
+		],
+		"Policy": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"mode": "Microbatch"
+		},
+		"status": "PipelineRunCreated",
+		"id": "c1c08d10c62f4c7aa5fd23d0e6e6ccad"
+	}
+}

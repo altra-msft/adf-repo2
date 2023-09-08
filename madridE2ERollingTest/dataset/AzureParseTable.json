@@ -1,0 +1,22 @@
+{
+	"name": "AzureParseTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CanarySql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "DelimitedText",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "SOURCE",
+			"table": "parseTest"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

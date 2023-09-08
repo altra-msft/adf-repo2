@@ -1,0 +1,49 @@
+{
+	"name": "PQTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CanarySql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CustomerNo",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Item",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Material",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PurchaseDate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "QtyShip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cost",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "TEST",
+			"table": "PQSourceTable2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

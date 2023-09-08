@@ -1,0 +1,61 @@
+{
+	"name": "NativeSqlTest",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          CustomerNo as integer,",
+				"          Customer as string,",
+				"          Currency as string,",
+				"          Country as string,",
+				"          Active as boolean,",
+				"          Zipcode as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     enableNativeCdc: true,",
+				"     netChanges: true,",
+				"     skipInitialLoad: false,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: 'TEST',",
+				"     tableName: 'NativeCDCTable0623',",
+				"     isolationLevel: 'READ_UNCOMMITTED') ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: 'TEST',",
+				"     tableName: 'NativeCDCSinkTable0623',",
+				"     insertable: true,",
+				"     updateable: true,",
+				"     deletable: true,",
+				"     upsertable: true,",
+				"     keys:['CustomerNo'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"name": "HDITest",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "HDInsight",
+		"typeProperties": {
+			"clusterUri": "https://adfdataflowhdihive.azurehdinsight.net",
+			"userName": "admin",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "adfdataflowhdihivepwd"
+			},
+			"isEspEnabled": false,
+			"linkedServiceName": {
+				"referenceName": "HadoopStore",
+				"type": "LinkedServiceReference"
+			}
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

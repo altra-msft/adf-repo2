@@ -1,0 +1,11 @@
+{
+	"name": "EAMLService-PE",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/0d143eda-d5b8-44df-82ec-95c50895ff80/resourceGroups/kalyanke/providers/Microsoft.MachineLearningServices/workspaces/EA_MLVNETEUAP",
+		"groupId": "amlworkspace",
+		"fqdns": [
+			"88aacb05-c578-4f64-ba7c-85a8569e6494.workspace.eastus2euap.api.azureml.ms",
+			"88aacb05-c578-4f64-ba7c-85a8569e6494.workspace.eastus2euap.cert.api.azureml.ms"
+		]
+	}
+}

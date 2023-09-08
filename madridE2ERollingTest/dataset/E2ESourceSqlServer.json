@@ -1,0 +1,16 @@
+{
+	"name": "E2ESourceSqlServer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "[dbo].[madride2etest]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

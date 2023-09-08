@@ -1,0 +1,86 @@
+{
+	"name": "dataflowUDF1",
+	"properties": {
+		"folder": {
+			"name": "UDF"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "CanarySql",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "select1"
+				}
+			],
+			"udfLibraries": [
+				{
+					"referenceName": "UDFRenameTestLibrary",
+					"type": "DataFlowReference"
+				},
+				{
+					"referenceName": "tempLibrary",
+					"type": "DataFlowReference"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ID as long,",
+				"          ENTERDT as timestamp,",
+				"          NAME as string,",
+				"          FSID as string,",
+				"          DEPT as string,",
+				"          WORKLOCATIONS as string,",
+				"          ETLInsertTimestamp as timestamp,",
+				"          Submitted as string,",
+				"          SHIFT_DESCR as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: 'TEST',",
+				"     tableName: '227764559_source',",
+				"     isolationLevel: 'READ_UNCOMMITTED') ~> source1",
+				"select1 derive(newColumn1 = function1212(NAME),",
+				"          newColumn2 = tempFunction2()) ~> derivedColumn1",
+				"source1 select(mapColumn(",
+				"          ID,",
+				"          ENTERDT,",
+				"          NAME,",
+				"          FSID,",
+				"          DEPT,",
+				"          {WORK LOCATIONS} = WORKLOCATIONS,",
+				"          ETLInsertTimestamp,",
+				"          Submitted,",
+				"          SHIFT_DESCR",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     store: 'cache',",
+				"     format: 'inline',",
+				"     output: false,",
+				"     saveOrder: 1) ~> sink1"
+			]
+		}
+	}
+}

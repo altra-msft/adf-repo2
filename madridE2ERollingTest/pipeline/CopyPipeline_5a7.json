@@ -1,0 +1,487 @@
+{
+	"name": "CopyPipeline_5a7",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_5a7",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"writeBehavior": "Insert",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureBlobGen2",
+							"type": "LinkedServiceReference"
+						},
+						"path": "qwerty"
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "IINTEGER",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "IINTEGER",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "IBIT",
+									"type": "Boolean",
+									"physicalType": "bit"
+								},
+								"sink": {
+									"name": "IBIT",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "ITINYINT",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "ITINYINT",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ISMALLINT",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "ISMALLINT",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "IBIGINT",
+									"type": "Int64",
+									"physicalType": "bigint"
+								},
+								"sink": {
+									"name": "IBIGINT",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "ISMALLMONEY",
+									"type": "Decimal",
+									"physicalType": "decimal"
+								},
+								"sink": {
+									"name": "ISMALLMONEY",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IMONEY",
+									"type": "Decimal",
+									"physicalType": "decimal"
+								},
+								"sink": {
+									"name": "IMONEY",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "INUMERIC",
+									"type": "Decimal",
+									"physicalType": "decimal"
+								},
+								"sink": {
+									"name": "INUMERIC",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "INUMERIC38",
+									"type": "Decimal",
+									"physicalType": "decimal"
+								},
+								"sink": {
+									"name": "INUMERIC38",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "INUMERIC3838",
+									"type": "Decimal",
+									"physicalType": "decimal"
+								},
+								"sink": {
+									"name": "INUMERIC3838",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IDECIMAL",
+									"type": "Decimal",
+									"physicalType": "decimal"
+								},
+								"sink": {
+									"name": "IDECIMAL",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IDECIMAL38",
+									"type": "Decimal",
+									"physicalType": "decimal"
+								},
+								"sink": {
+									"name": "IDECIMAL38",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IDECIMAL3838",
+									"type": "Decimal",
+									"physicalType": "decimal"
+								},
+								"sink": {
+									"name": "IDECIMAL3838",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IFLOAT",
+									"type": "Double",
+									"physicalType": "float"
+								},
+								"sink": {
+									"name": "IFLOAT",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "IREAL",
+									"type": "Single",
+									"physicalType": "real"
+								},
+								"sink": {
+									"name": "IREAL",
+									"type": "Single"
+								}
+							},
+							{
+								"source": {
+									"name": "ICHAR",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "ICHAR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INCHAR",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "INCHAR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IVARCHAR",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "IVARCHAR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INVARCHAR",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "INVARCHAR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IVARCHARMAX",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "IVARCHARMAX",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INVARCHARMAX",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "INVARCHARMAX",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ITEXT",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "ITEXT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INTEXT",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "INTEXT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IDATE",
+									"type": "DateTime",
+									"physicalType": "date"
+								},
+								"sink": {
+									"name": "IDATE",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "ITIME",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								},
+								"sink": {
+									"name": "ITIME",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "ISMALLDATETIME",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								},
+								"sink": {
+									"name": "ISMALLDATETIME",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "IDATETIME",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								},
+								"sink": {
+									"name": "IDATETIME",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "IDATETIME2",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								},
+								"sink": {
+									"name": "IDATETIME2",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "IDATETIMEOFFSET",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "IDATETIMEOFFSET",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IBINARY",
+									"type": "Byte[]",
+									"physicalType": "varbinary"
+								},
+								"sink": {
+									"name": "IBINARY",
+									"type": "Byte[]"
+								}
+							},
+							{
+								"source": {
+									"name": "IVARBINARY",
+									"type": "Byte[]",
+									"physicalType": "varbinary"
+								},
+								"sink": {
+									"name": "IVARBINARY",
+									"type": "Byte[]"
+								}
+							},
+							{
+								"source": {
+									"name": "IVARBINARYMAX",
+									"type": "Byte[]",
+									"physicalType": "varbinary"
+								},
+								"sink": {
+									"name": "IVARBINARYMAX",
+									"type": "Byte[]"
+								}
+							},
+							{
+								"source": {
+									"name": "IIMAGE",
+									"type": "Byte[]",
+									"physicalType": "varbinary"
+								},
+								"sink": {
+									"name": "IIMAGE",
+									"type": "Byte[]"
+								}
+							},
+							{
+								"source": {
+									"name": "ITIMESTAMP",
+									"type": "Byte[]",
+									"physicalType": "varbinary"
+								},
+								"sink": {
+									"name": "ITIMESTAMP",
+									"type": "Byte[]"
+								}
+							},
+							{
+								"source": {
+									"name": "IUNIQUEIDENTIFIER",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "IUNIQUEIDENTIFIER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IXML",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "IXML",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Igeometry",
+									"type": "Byte[]",
+									"physicalType": "varbinary"
+								},
+								"sink": {
+									"name": "Igeometry",
+									"type": "Byte[]"
+								}
+							},
+							{
+								"source": {
+									"name": "Igeography",
+									"type": "Byte[]",
+									"physicalType": "varbinary"
+								},
+								"sink": {
+									"name": "Igeography",
+									"type": "Byte[]"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_5a7",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_5a7",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-08T06:59:49Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

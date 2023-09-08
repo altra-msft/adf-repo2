@@ -1,0 +1,46 @@
+{
+	"name": "AzureDatabricks1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-3202628784864327.7.azuredatabricks.net",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "ADBLSanreddToken"
+			},
+			"newClusterNodeType": "Standard_D64s_v3",
+			"newClusterNumOfWorker": "0",
+			"newClusterSparkConf": {
+				"spark.databricks.cluster.profile": "singleNode",
+				"master": "local[*]"
+			},
+			"newClusterCustomTags": {
+				"ResourceClass": "SingleNode"
+			},
+			"newClusterVersion": "10.0.x-scala2.12",
+			"newClusterInitScripts": [],
+			"clusterOption": "Single node",
+			"policyId": "6061B9638C000431",
+			"dockerImage": {
+				"url": "adftest.azurecr.io/databricks:latest",
+				"basicAuth": {
+					"username": "adftest",
+					"password": {
+						"type": "SecureString",
+						"value": "**********"
+					}
+				}
+			}
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

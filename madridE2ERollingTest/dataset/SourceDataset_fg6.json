@@ -1,0 +1,42 @@
+{
+	"name": "SourceDataset_fg6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "TestSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "DEPTNO",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "AvgSalary",
+				"type": "decimal",
+				"precision": 24,
+				"scale": 9
+			},
+			{
+				"name": "approxDistinct",
+				"type": "bigint",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "approxDistinct2",
+				"type": "bigint",
+				"precision": 19,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "AdfCanaryTestSpark3",
+			"table": "approxDistinctCnt"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

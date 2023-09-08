@@ -1,0 +1,13 @@
+{
+	"name": "RestServiceForE2E",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://madride2etestreports.blob.core.windows.net/public/CDC-Details-simple.json",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

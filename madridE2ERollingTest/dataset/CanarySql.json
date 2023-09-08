@@ -1,0 +1,13 @@
+{
+	"name": "CanarySql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CanarySqlLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

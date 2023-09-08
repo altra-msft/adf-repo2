@@ -1,0 +1,39 @@
+{
+	"name": "testPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "testingDataFlow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "testingDataFlow",
+						"type": "DataFlowReference"
+					},
+					"integrationRuntime": {
+						"referenceName": "cross-region",
+						"type": "IntegrationRuntimeReference"
+					},
+					"traceLevel": "None"
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-04-04T11:38:27Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

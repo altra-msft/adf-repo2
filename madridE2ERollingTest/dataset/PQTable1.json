@@ -1,0 +1,43 @@
+{
+	"name": "PQTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CanarySql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CustomerNo",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Customer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Active",
+				"type": "bit"
+			},
+			{
+				"name": "Zipcode",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "TEST",
+			"table": "PQSourceTable1"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,15 @@
+{
+	"name": "TypeTest",
+	"properties": {
+		"type": "UDFLibrary",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"NonArrayTypes(string, integer, boolean, date, timestamp, any, short, double, byte, fractional, float, decimal, integral, number, binary) as integer = 9,",
+				"ArrayTypes(string[], integer[]) as string[] = array(\"1\")"
+			]
+		}
+	}
+}

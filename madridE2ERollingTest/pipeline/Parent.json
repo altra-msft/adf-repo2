@@ -1,0 +1,28 @@
+{
+	"name": "Parent",
+	"properties": {
+		"activities": [
+			{
+				"name": "Parent",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Child",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-08-02T07:26:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
