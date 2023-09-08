@@ -1,0 +1,9 @@
+{
+	"name": "altra-cicd-test",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "22070f36-2983-4bc9-83cf-5cf779f92060",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}

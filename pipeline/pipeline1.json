@@ -12,6 +12,13 @@
 				}
 			}
 		],
-		"annotations": []
-	}
+		"policy": {
+			"cancelAfter": {
+				"duration": "30.00:00:00"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-08T07:19:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
